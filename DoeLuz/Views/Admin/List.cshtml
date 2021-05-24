@@ -1,0 +1,11 @@
+﻿@model IEnumerable<Admin>
+@foreach(var a in Model)
+{
+    <div>
+        <h3>@a.Nome</h3>
+        <h3>@a.Email</h3>
+        <h4>@a.Endereco</h4>
+        <h4>@a.Cpf</h4>
+        <h4>@a.Doacoes</h4>
+    </div>
+}

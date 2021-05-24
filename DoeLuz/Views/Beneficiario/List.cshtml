@@ -1,0 +1,13 @@
+﻿@model IEnumerable<Beneficiario>
+@foreach (var b in Model)
+{
+    <div>
+        <h3>@b.Nome</h3>
+        <h3>@b.Email</h3>
+        <h3>@b.Status</h3>
+        <h4>@b.Endereco</h4>
+        <h4>@b.Historia</h4>
+        <h4>@b.Preferencia</h4>
+        <h4>@b.Doacoes</h4>
+    </div>
+}
