@@ -1,11 +1,18 @@
-﻿@model IEnumerable<Admin>
-@foreach(var a in Model)
+﻿@model AdminListViewModel
+@foreach(var a in Model.Admins)
 {
-    <div>
-        <h3>@a.Nome</h3>
-        <h3>@a.Email</h3>
-        <h4>@a.Endereco</h4>
-        <h4>@a.Cpf</h4>
-        <h4>@a.Doacoes</h4>
+    <div class="card card-outline-primary m-1 p-1">
+        <div class="bg-faded p-1">
+            <h3>@a.Nome</h3>
+            <h3>@a.Email</h3>
+            <span class="badge badge-pill badge-primary" stylie="float:right">
+                <small>@a.Endereco</small>
+            </span>
+            <h4>@a.Endereco</h4>
+            <div class="card-text p-1">@a.Cpf</div>
+        </div>
     </div>
 }
+<div page-model="@Model.PagingInfo" page-action ="List" page-classes-enabled="true"
+     page-class="btn" page-class-normal="btn-secondary"
+     page-class-selected="btn-primary class="btn-group pull-right m-1></div>
