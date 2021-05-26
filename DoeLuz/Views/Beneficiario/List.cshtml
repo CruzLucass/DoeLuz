@@ -1,8 +1,9 @@
-﻿@model IEnumerable<Beneficiario>
-@foreach (var b in Model)
+﻿@model BeneficiarioListViewModel
+
+@foreach (var b in Model.Beneficiarios)
 {
     <div>
-        <h3>@b.Nome</h3>
+        <a asp-action="Details" asp-route-id="@b.BeneficiarioID"><h4>@b.Nome</h4></a>
         <h3>@b.Email</h3>
         <h3>@b.Status</h3>
         <h4>@b.Endereco</h4>

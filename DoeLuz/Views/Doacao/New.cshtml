@@ -1,0 +1,63 @@
+﻿@model DoeLuz.Models.Doacao
+
+@{
+    ViewData["Title"] = "New";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h1>Adicionar</h1>
+
+<h4>Doação</h4>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form asp-action="New">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <div class="form-group">
+                <label asp-for="DataEntrega" class="control-label"></label>
+                <input asp-for="DataEntrega" class="form-control" />
+                <span asp-validation-for="DataEntrega" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Confirma" class="control-label"></label>
+                <input asp-for="Confirma" class="form-control" />
+                <span asp-validation-for="Confirma" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="TipoDoacao" class="control-label"></label>
+                <input asp-for="TipoDoacao" class="form-control" />
+                <span asp-validation-for="TipoDoacao" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Item" class="control-label"></label>
+                <input asp-for="Item" class="form-control" />
+                <span asp-validation-for="Item" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Mensagem" class="control-label"></label>
+                <input asp-for="Mensagem" class="form-control" />
+                <span asp-validation-for="Mensagem" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="DoadorID" class="control-label"></label>
+                <select asp-for="DoadorID" class ="form-control" asp-items="ViewBag.DoadorID"></select>
+            </div>
+            <div class="form-group">
+                <label asp-for="BeneficiarioID" class="control-label"></label>
+                <select asp-for="BeneficiarioID" class ="form-control" asp-items="ViewBag.BeneficiarioID"></select>
+            </div>
+            <div class="form-group">
+                <label asp-for="AdminID" class="control-label"></label>
+                <select asp-for="AdminID" class ="form-control" asp-items="ViewBag.AdminID"></select>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Confirmar" class="btn btn-primary" />
+            </div>
+        </form>
+    </div>
+</div>
+
+<div>
+    <a asp-action="List">Voltar para lista</a>
+</div>
+

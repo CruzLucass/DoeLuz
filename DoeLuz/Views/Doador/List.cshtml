@@ -1,8 +1,9 @@
-﻿@model IEnumerable<Doador>
-@foreach (var d in Model)
+﻿@model DoadorListViewModel
+
+@foreach (var d in Model.Doadores)
 {
     <div>
-        <h3>@d.Nome</h3>
+        <a asp-action="Details" asp-route-id="@d.DoadorID"><h4>@d.Nome</h4></a>
         <h3>@d.Email</h3>
         <h3>@d.Endereco</h3>
         <h4>@d.Doacoes</h4>

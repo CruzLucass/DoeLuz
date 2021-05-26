@@ -45,5 +45,34 @@ namespace DoeLuz.Controllers
             repositorio.Create(admin);
             return RedirectToAction("List");
         }
+        public IActionResult Details(int id)
+        {
+            var admin = repositorio.ObterAdmin(id);
+            return View(admin);
+        }
+        [HttpGet]
+        public IActionResult Edit(int id)
+        {
+            var admin = context.Admins.Find(id);
+            return View(admin);
+        }
+        [HttpPost]
+        public IActionResult Edit(Admin admin)
+        {
+            repositorio.Edit(admin);
+            return RedirectToAction("List");
+        }
+        [HttpGet]
+        public IActionResult Delete(int id)
+        {
+            var admin = repositorio.ObterAdmin(id);
+            return View(admin);
+        }
+        [HttpPost]
+        public IActionResult Delete(Admin admin)
+        {
+            repositorio.Delete(admin);
+            return RedirectToAction("List");
+        }
     }
 }
