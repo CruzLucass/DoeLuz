@@ -28,7 +28,7 @@ namespace DoeLuz.Infraestutura
         public string PageClass { get; set; }
         public string PageClassNormal { get; set; }
         public string PageClassSelected { get; set; }
-        public override void Process(TagHelperContext xontext, TagHelperOutput output)
+        public override void Process(TagHelperContext context, TagHelperOutput output)
         {
             IUrlHelper urlHelper = urlHelperFactory.GetUrlHelper(ViewContext);
             TagBuilder result = new TagBuilder("div");
@@ -36,8 +36,8 @@ namespace DoeLuz.Infraestutura
             {
                 TagBuilder tag = new TagBuilder("a");
                 tag.Attributes["href"] = urlHelper.Action(PageAction, new { paginaAdmin = i });
-
-                if(PageClassesEnabled)
+                tag.Attributes["href"] = urlHelper.Action(PageAction, new { paginaBeneficiario = i });
+                if (PageClassesEnabled)
                 {
                     tag.AddCssClass(PageClass);
                     tag.AddCssClass(i == PageModel.PaginaAtual ? PageClassSelected : PageClassNormal);

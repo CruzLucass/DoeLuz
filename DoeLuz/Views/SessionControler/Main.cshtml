@@ -1,0 +1,69 @@
+﻿
+@{
+    ViewData["Title"] = "Main";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<div>
+    <div>
+        <br />
+        <h3>DOE LUZ</h3>
+    </div>
+
+    <div class="col-10">
+        <label>
+            O Projeto Doe Luz é uma ação inesperada que tem o onjetivo de ampliar o tabalho voluntario feito pelo
+            centro espírita à Caminho da Luz, que ajuda centenas de famílias carentes na cidade de Alfenas.
+        </label>
+    </div>
+    <br />
+    <div>
+        <h4>Conheça algumas histórias:</h4>
+        <div class="row">
+            <div class="card col-sm-3 m-xl-3" style="width: 18rem;">
+                <div class="card-body">
+                    <h5 class="card-title">José</h5>
+                    <h6 class="card-subtitle mb-2 text-muted">Alfenas</h6>
+                    <p class="card-text">"Estou desempregado desde o início da pandemia e não tenho condições de alimentar minha família."</p>
+                    <a href="#" class="card-link">Saiba mais</a>
+                    <a href="#" class="card-link">Doe agora</a>
+                </div>
+            </div>
+            <div class="card col-sm-3 m-xl-3" style="width: 18rem;">
+                <div class="card-body">
+                    <h5 class="card-title">Maria</h5>
+                    <h6 class="card-subtitle mb-2 text-muted">Alfenas</h6>
+                    <p class="card-text">"Perdi meu marido para o COVID-19 e desde então não consigo manter a todos os meus três filhos."</p>
+                    <a href="#" class="card-link">Saiba mais</a>
+                    <a href="#" class="card-link">Doe agora</a>
+                </div>
+            </div>
+            <div class="card col-sm-3 m-xl-3" style="width: 18rem;">
+                <div class="card-body">
+                    <h5 class="card-title">Luis</h5>
+                    <h6 class="card-subtitle mb-2 text-muted">Alfenas</h6>
+                    <p class="card-text">"Estou desempregado e não consigo dinheiro para comprar leite para meus filhos."</p>
+                    <a href="#" class="card-link">Saiba mais</a>
+                    <a href="#" class="card-link">Doe agora</a>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div>
+        <h4 class="align-content-lg-center">Saiba mais sobre o Projeto!</h4>
+        <div>
+            <p class="col-sm-10"> 
+                Este projeto pretende ajudar famílias carentes com alimentos e objetos
+                pessoais como roupas, sapatos e cobertores.
+                Com a ajuda desse site vamos organizar melhor as doações e ampliar a ajuda
+                para que qualquer pessoa possa ajudar quem precisa.
+                Você pode ajudar diretamente uma familia ou então pode repassar essa ajuda ppara o centro
+                que eles estarão distribuindo para famílias que estão cadastradas no sistema.
+            </p>
+        </div>
+        <div class="col-md-12">
+            @Html.ActionLink("Cadastre-se", "New", "Doador", null, new { @class = "btn btn-danger" })
+        </div>
+    </div>
+</div>
+

@@ -2,13 +2,20 @@
 
 @foreach (var b in Model.Beneficiarios)
 {
-    <div>
-        <a asp-action="Details" asp-route-id="@b.BeneficiarioID"><h4>@b.Nome</h4></a>
-        <h3>@b.Email</h3>
-        <h3>@b.Status</h3>
-        <h4>@b.Endereco</h4>
-        <h4>@b.Historia</h4>
-        <h4>@b.Preferencia</h4>
-        <h4>@b.Doacoes</h4>
+    <div class="card card-group-danger m-1 p-1">
+        <div class="btn-group-toggle p-1">
+            <a asp-action="Details" asp-route-id="@b.BeneficiarioID"><h4>@b.Nome</h4></a>
+            <h3>@b.Email</h3>
+            <h3>@b.Status</h3>
+            <h4>@b.Endereco</h4>
+            <h4>@b.Historia</h4>
+            <h4>@b.Preferencia</h4>
+            <h4>@b.Doacoes</h4>
+
+        </div>
     </div>
 }
+    <div page-model="@Model.PagingInfo" paging-action="List" page-classes-enabled="true"
+         page-class="btn" page-class-normal="btn-secondary"
+         page-class-selected="btn-primary" class="btn-group pull-right m-1">
+    </div>

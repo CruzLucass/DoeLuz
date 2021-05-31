@@ -1,10 +1,11 @@
 ﻿@model DoacaoListViewModel
+
 @foreach (var d in Model.Doacoes)
 {
     <div>
-        <h3>@d.AdminID</h3>
-        <h3>@d.BeneficiarioID</h3>
-        <h3>@d.DoadorID</h3>
+        <h3>@d.Admin.Nome</h3>
+        <h3>@d.Beneficiario.Nome</h3>
+        <h3>@d.Doador.Nome</h3>
         <h4>@d.Mensagem</h4>
         <h4>@d.TipoDoacao</h4>
         <h4>@d.Item</h4>

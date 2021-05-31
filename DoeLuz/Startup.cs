@@ -28,6 +28,15 @@ namespace DoeLuz
             services.AddTransient<IBeneficiarioRepositorio, EFBeneficiarioRepositorio>();
             services.AddTransient<IDoacaoRepositorio, EFDoacaoRepositorio>();
             services.AddMvc();
+            services.AddControllersWithViews();
+
+            //configuração da session
+            services.AddSession(options =>
+            {
+                options.Cookie.Name = ".Aula.Session";
+                options.IdleTimeout = TimeSpan.FromSeconds(10);
+                options.Cookie.IsEssential = true;
+            });
 
         }
 
@@ -40,13 +49,13 @@ namespace DoeLuz
             app.UseStatusCodePages();
             app.UseStaticFiles();
             app.UseRouting();
-
+            app.UseSession();
+            app.UseAuthorization();
             app.UseEndpoints(endpoints =>
             {
                 endpoints.MapControllerRoute(
                     name: "default",
-                    pattern: "{controller}/{action}/{id?}",
-                    defaults: new { controller = "Beneficiario", action = "List" });
+                    pattern: "{controller=SessionControler}/{action=Main}/{id?}");
             });
             SeedData.EnsurePopulated(app);
         }
