@@ -12,9 +12,13 @@
 
     <div class="col-10">
         <label>
-            O Projeto Doe Luz é uma ação inesperada que tem o onjetivo de ampliar o tabalho voluntario feito pelo
+            O Projeto Doe Luz é uma ação inesperada que tem o objetivo de ampliar o tabalho voluntário feito pelo
             centro espírita à Caminho da Luz, que ajuda centenas de famílias carentes na cidade de Alfenas.
         </label>
+    </div>
+    <div class="col-lg-12">
+        @Html.ActionLink("Cadastre-se", "New", "Doador", null, new { @class = "btn btn-primary btn-sm" })
+        @Html.ActionLink("Entrar", "Login", "SessionControler", null, new { @class = "btn btn-dark btn-sm" })
     </div>
     <br />
     <div>
@@ -50,9 +54,9 @@
         </div>
     </div>
     <div>
-        <h4 class="align-content-lg-center">Saiba mais sobre o Projeto!</h4>
+        <h4 class="align-content-lg-center">Saiba Mais Sobre o Projeto!</h4>
         <div>
-            <p class="col-sm-10"> 
+            <p class="col-sm-10">
                 Este projeto pretende ajudar famílias carentes com alimentos e objetos
                 pessoais como roupas, sapatos e cobertores.
                 Com a ajuda desse site vamos organizar melhor as doações e ampliar a ajuda
@@ -61,8 +65,33 @@
                 que eles estarão distribuindo para famílias que estão cadastradas no sistema.
             </p>
         </div>
-        <div class="col-md-12">
-            @Html.ActionLink("Cadastre-se", "New", "Doador", null, new { @class = "btn btn-danger" })
+        <h4 class="align-content-lg-center">Quem Somos</h4>
+        <div>
+            <p class="col-sm-10">
+                O centro espírita à Caminho da Luz está instalado no bairro Vila Betânia em Alfenas/Mg, está a vários anos ralizando serviço comunitário na cidade
+                com o intuito de uma sociedade igualitária.
+                A instituição realiza evangelização de dezenas de crianças e adolescentes, ensinando os valores primordios da vida, também é realizado serviços comunitários
+                e ações para levantamento de itens para doações. É realizado tbm bazares beneficentes na comunidade.
+            </p>
+        </div>
+        <h4 class="align-content-lg-center">Como Ajudar</h4>
+        <div>
+            <p class="col-sm-10">
+                Para ajudar esta causa nobre basta se inscrever no projeto e escolher se deseja doar diretamente para uma familia carente ou se preferir poderá doar para o centro que tambem irá
+                repassar a sua doação para uma família que necessite.
+                Se escolher doar diretamente você poderá detectar no mapa uma família próxima para realizar a doação e conhecer de perto a situação em que a mesma se encontra,
+                depois que escolher basta marcar uma data para realizar a entrega.
+                Caso escolha doar para a centro, você poderá marcar uma data para poder estar entregando sua doação.
+
+                <br />
+                <b>Clique no em cadastre-se e realize seu cadastro!</b>
+                Caso ja seja cadastrado clique em Entrar e ajude esta causa!
+
+            </p>
+        </div>
+        <div class="col-lg-12">
+            @Html.ActionLink("Cadastre-se", "New", "Doador", null, new { @class = "btn btn-primary btn-lg" })
+            @Html.ActionLink("Entrar", "Login", "SessionControler", null, new { @class = "btn btn-dark btn-lg" })
         </div>
     </div>
 </div>

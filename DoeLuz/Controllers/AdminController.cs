@@ -34,6 +34,7 @@ namespace DoeLuz.Controllers
                     TotalItens = repositorio.Admins.Count()
                 }
             });
+
         [HttpGet]
         public IActionResult New()
         {
@@ -42,8 +43,25 @@ namespace DoeLuz.Controllers
         [HttpPost]
         public IActionResult New(Admin admin)
         {
-            repositorio.Create(admin);
-            return RedirectToAction("List");
+            try
+            {
+                if(ModelState.IsValid)
+                {
+                    repositorio.Create(admin);
+                    return RedirectToAction("ConfirmaCadastro");
+                }
+                return View();
+            }
+            catch
+            {
+                return View();
+            }
+        }
+
+        //view de confirmação
+        public IActionResult ConfirmaCadastro()
+        {
+            return View();
         }
         public IActionResult Details(int id)
         {

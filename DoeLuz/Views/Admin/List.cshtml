@@ -1,17 +1,20 @@
 ﻿@model AdminListViewModel
 
-@foreach(var a in Model.Admins)
+@foreach (var a in Model.Admins)
 {
     <div class="card card-outline-primary m-1 p-1">
         <div class="bg-faded p-1">
             <a asp-action="Details" asp-route-id="@a.AdminID"><h4>@a.Nome</h4></a>
-            <h3>@a.Email</h3>            
-            <h5>@a.Endereco</h5>            
+            <h3>@a.Email</h3>
+            <h5>@a.Endereco</h5>
         </div>
     </div>
 }
-<div page-model="@Model.PagingInfo" paging-action ="List" page-classes-enabled="true"
+<div page-model="@Model.PagingInfo" paging-action="List" page-classes-enabled="true"
      page-class="btn" page-class-normal="btn-secondary"
      page-class-selected="btn-primary" class="btn-group pull-right m-1">
 
 </div>
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}
