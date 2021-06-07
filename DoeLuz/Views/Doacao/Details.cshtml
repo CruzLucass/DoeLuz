@@ -5,7 +5,7 @@
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
-<h1>Informações</h1>
+<h1 style="text-align:center">Informações</h1>
 
 <div>
     <h4>Doação</h4>
@@ -62,7 +62,7 @@
     </dl>
 </div>
 <div>
-    <a asp-action="Edit" asp-route-id="@Model.DoacaoID">Editar</a> |
-    <a asp-action="Delete" asp-route-id="@Model.DoacaoID">Excluir</a> |
-    <a asp-action="List">Voltar para lista</a>
+    <a style="color:#D46A6B;" asp-action="Edit" asp-route-id="@Model.DoacaoID">Editar</a> |
+    <a style="color:#D46A6B;" asp-action="Delete" asp-route-id="@Model.DoacaoID">Excluir</a> |
+    <a style="color:#D46A6B;" asp-action="List">Voltar para lista</a>
 </div>

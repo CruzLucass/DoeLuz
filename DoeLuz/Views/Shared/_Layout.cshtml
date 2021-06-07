@@ -8,7 +8,7 @@
     <title>Doe Luz</title>
 </head>
 <body>
-    <nav class="navbar navbar-expand-lg navbar-dark badge-danger" role="navigation">
+    <nav class="navbar navbar-expand-lg navbar-dark badge-danger" style="background-color: #D46A6B;" role="navigation">
         <div class="container">
             <a class="navbar-brand h1 mb-0" href="#">DOE LUZ</a>
             <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSite">
@@ -35,15 +35,19 @@
     </nav>
     <div class="row m-1 p-1">
         <div id="categories" class="col-2">
-            <h3>LOGO</h3>
+            <img src="/lib/bootstrap/js/src/logo.jpg" alt="" width="150" height="100">
         </div>
         <div class="col-9">
             @RenderBody()
         </div>
     </div>
-    <footer class="border-top footer text-muted">
+    <footer class="border-top footer text-muted" style="background-color: #D46A6B;">
         <div class="container">
-            &copy; 2021 - Doe Luz - <a asp-area="" asp-controller="SessionControler" asp-action="Privacy">Privacy</a>
+            <h4 style="color:#ffffff">Entre em contato conosco</h4>
+            <h5>Centro Espirita Caminho da Luz</h5>
+            <h5>Telefone: </h5>
+            <h5>Email: </h5>
+            <h6>Endereço: </h6>
         </div>
     </footer>
     <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>

@@ -7,7 +7,6 @@
 <div>
     <div>
         <br />
-        <h3>DOE LUZ</h3>
     </div>
 
     <div class="col-10">
@@ -17,20 +16,20 @@
         </label>
     </div>
     <div class="col-lg-12">
-        @Html.ActionLink("Cadastre-se", "New", "Doador", null, new { @class = "btn btn-primary btn-sm" })
+        @Html.ActionLink("Cadastre-se", "New", "Doador", null, new { @class = "btn btn-primary btn-sm btn-danger" })
         @Html.ActionLink("Entrar", "Login", "SessionControler", null, new { @class = "btn btn-dark btn-sm" })
     </div>
     <br />
     <div>
-        <h4>Conheça algumas histórias:</h4>
-        <div class="row">
+        <h4 style="text-align:center">Conheça algumas histórias:</h4>
+        <div class="row" style="display: flex; flex-direction: row; justify-content: center; align-items: center">
             <div class="card col-sm-3 m-xl-3" style="width: 18rem;">
                 <div class="card-body">
                     <h5 class="card-title">José</h5>
                     <h6 class="card-subtitle mb-2 text-muted">Alfenas</h6>
                     <p class="card-text">"Estou desempregado desde o início da pandemia e não tenho condições de alimentar minha família."</p>
-                    <a href="#" class="card-link">Saiba mais</a>
-                    <a href="#" class="card-link">Doe agora</a>
+                    <a style="color:#D46A6B;" href="#" class="card-link">Saiba mais</a>
+                    <a style="color:#D46A6B;" href="#" class="card-link">Doe agora</a>
                 </div>
             </div>
             <div class="card col-sm-3 m-xl-3" style="width: 18rem;">
@@ -38,8 +37,8 @@
                     <h5 class="card-title">Maria</h5>
                     <h6 class="card-subtitle mb-2 text-muted">Alfenas</h6>
                     <p class="card-text">"Perdi meu marido para o COVID-19 e desde então não consigo manter a todos os meus três filhos."</p>
-                    <a href="#" class="card-link">Saiba mais</a>
-                    <a href="#" class="card-link">Doe agora</a>
+                    <a style="color:#D46A6B;" href="#" class="card-link">Saiba mais</a>
+                    <a style="color:#D46A6B;" href="#" class="card-link">Doe agora</a>
                 </div>
             </div>
             <div class="card col-sm-3 m-xl-3" style="width: 18rem;">
@@ -47,16 +46,16 @@
                     <h5 class="card-title">Luis</h5>
                     <h6 class="card-subtitle mb-2 text-muted">Alfenas</h6>
                     <p class="card-text">"Estou desempregado e não consigo dinheiro para comprar leite para meus filhos."</p>
-                    <a href="#" class="card-link">Saiba mais</a>
-                    <a href="#" class="card-link">Doe agora</a>
+                    <a style="color:#D46A6B;" href="#" class="card-link">Saiba mais</a>
+                    <a style="color:#D46A6B;" href="#" class="card-link">Doe agora</a>
                 </div>
             </div>
         </div>
     </div>
     <div>
-        <h4 class="align-content-lg-center">Saiba Mais Sobre o Projeto!</h4>
-        <div>
-            <p class="col-sm-10">
+        <h4 class="align-content-lg-center" style="text-align:center">Saiba Mais Sobre o Projeto!</h4>
+        <div style="display: flex;flex-direction: row;justify-content: center;align-items: center">
+            <p class="col-sm-10" style="text-align:center">
                 Este projeto pretende ajudar famílias carentes com alimentos e objetos
                 pessoais como roupas, sapatos e cobertores.
                 Com a ajuda desse site vamos organizar melhor as doações e ampliar a ajuda
@@ -65,18 +64,18 @@
                 que eles estarão distribuindo para famílias que estão cadastradas no sistema.
             </p>
         </div>
-        <h4 class="align-content-lg-center">Quem Somos</h4>
-        <div>
-            <p class="col-sm-10">
+        <h4 class="align-content-lg-center" style="text-align:center">Quem Somos</h4>
+        <div style="display: flex; flex-direction: row; justify-content: center; align-items: center">
+            <p class="col-sm-10" style="text-align:center">
                 O centro espírita à Caminho da Luz está instalado no bairro Vila Betânia em Alfenas/Mg, está a vários anos ralizando serviço comunitário na cidade
                 com o intuito de uma sociedade igualitária.
                 A instituição realiza evangelização de dezenas de crianças e adolescentes, ensinando os valores primordios da vida, também é realizado serviços comunitários
                 e ações para levantamento de itens para doações. É realizado tbm bazares beneficentes na comunidade.
             </p>
         </div>
-        <h4 class="align-content-lg-center">Como Ajudar</h4>
-        <div>
-            <p class="col-sm-10">
+        <h4 style="text-align:center" class="align-content-lg-center">Como Ajudar</h4>
+        <div style="display: flex; flex-direction: row; justify-content: center; align-items: center">
+            <p class="col-sm-10" style="text-align:center">
                 Para ajudar esta causa nobre basta se inscrever no projeto e escolher se deseja doar diretamente para uma familia carente ou se preferir poderá doar para o centro que tambem irá
                 repassar a sua doação para uma família que necessite.
                 Se escolher doar diretamente você poderá detectar no mapa uma família próxima para realizar a doação e conhecer de perto a situação em que a mesma se encontra,
@@ -89,8 +88,8 @@
 
             </p>
         </div>
-        <div class="col-lg-12">
-            @Html.ActionLink("Cadastre-se", "New", "Doador", null, new { @class = "btn btn-primary btn-lg" })
+        <div style="display: flex; flex-direction: row; justify-content: center; align-items: center" class="col-lg-12">
+            @Html.ActionLink("Cadastre-se", "New", "Doador", null, new { @class = "btn btn-primary btn-lg btn-danger" })
             @Html.ActionLink("Entrar", "Login", "SessionControler", null, new { @class = "btn btn-dark btn-lg" })
         </div>
     </div>

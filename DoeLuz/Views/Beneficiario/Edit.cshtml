@@ -5,7 +5,7 @@
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
-<h1>Editar Cadastro</h1>
+<h1 style="text-align:center">Editar</h1>
 
 <h4>Beneficiario</h4>
 <hr />
@@ -55,13 +55,13 @@
                 <span asp-validation-for="Status" class="text-danger"></span>
             </div>
             <div class="form-group">
-                <input type="submit" value="Salvar" class="btn btn-primary" />
+                <input type="submit" value="Salvar" class="btn btn-primary btn-danger" />
             </div>
         </form>
     </div>
 </div>
 
 <div>
-    <a asp-action="List">Voltar para lista</a>
+    <a style="color:#D46A6B;" asp-action="List">Voltar para lista</a>
 </div>
 

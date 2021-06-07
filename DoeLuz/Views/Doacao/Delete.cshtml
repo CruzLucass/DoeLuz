@@ -5,9 +5,8 @@
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
-<h1>Excluir</h1>
 
-<h3>Você tem certeza que deseja excluir esta doação?</h3>
+<h3 style="text-align:center">Você tem certeza que deseja excluir esta doação?</h3>
 <div>
     <h4>Doação</h4>
     <hr />
@@ -65,6 +64,6 @@
     <form asp-action="Delete">
         <input type="hidden" asp-for="DoacaoID" />
         <input type="submit" value="Excluir" class="btn btn-danger" /> |
-        <a asp-action="List">Voltar para lista</a>
+        <a style="color:#D46A6B;" asp-action="List">Voltar para lista</a>
     </form>
 </div>

@@ -5,7 +5,7 @@
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
-<h1>Editar</h1>
+<h1 style="text-align:center">Editar</h1>
 
 <h4>Administrador</h4>
 <hr />
@@ -45,14 +45,14 @@
                 <span asp-validation-for="NomeOng" class="text-danger"></span>
             </div>
             <div class="form-group">
-                <input type="submit" value="Salvar" class="btn btn-primary" />
+                <input type="submit" value="Salvar" class="btn btn-primary btn-danger" />
             </div>
         </form>
     </div>
 </div>
 
 <div>
-    <a asp-action="List">Voltar para Lista</a>
+    <a style="color:#D46A6B;" asp-action="List">Voltar para Lista</a>
 </div>
 @section Scripts {
     @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
