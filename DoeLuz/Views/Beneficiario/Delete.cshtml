@@ -5,11 +5,9 @@
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
-<h1>Escluir</h1>
-
-<h3>Você tem certeza que deseja excluir este cadastro?</h3>
+<h3 style="text-align:center">Você tem certeza que deseja excluir este cadastro?</h3>
 <div>
-    <h4>Beneficiario</h4>
+    <h4>Beneficiário</h4>
     <hr />
     <dl class="row">
         <dt class = "col-sm-2">
@@ -65,6 +63,6 @@
     <form asp-action="Delete">
         <input type="hidden" asp-for="BeneficiarioID" />
         <input type="submit" value="Excluir" class="btn btn-danger" /> |
-        <a asp-action="Lista">Voltar para lista</a>
+        <a style="color:#D46A6B;" asp-action="Lista">Voltar para lista</a>
     </form>
 </div>

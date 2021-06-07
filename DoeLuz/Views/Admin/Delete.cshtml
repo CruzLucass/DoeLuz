@@ -5,9 +5,8 @@
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
-<h1>Deletar</h1>
 
-<h3>Você tem certeza que deseja excluir esse usuário?</h3>
+<h3 style="text-align:center">Você tem certeza que deseja excluir esse usuário?</h3>
 <div>
     <h4>Administrador</h4>
     <hr />
@@ -53,7 +52,7 @@
     <form asp-action="Delete">
         <input type="hidden" asp-for="AdminID" />
         <input type="submit" value="Deletar" class="btn btn-danger" /> |
-        <a asp-action="List">Voltar para a lista</a>
+        <a style="color:#D46A6B;" asp-action="List">Voltar para a lista</a>
     </form>
 </div>
 @section Scripts {
