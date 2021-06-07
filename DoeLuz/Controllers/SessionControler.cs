@@ -37,11 +37,28 @@ namespace DoeLuz.Controllers
         [HttpPost]
         public IActionResult Login(string email, string senha)
         {
-            var confirma = context.Admins.Where(u => u.Email.Equals(email) && u.Senha.Equals(senha)).FirstOrDefault();
-            if (confirma != null)
+            //tres variaveis para receber as informação do login, vai verificar qual o tipo do usuário
+            var confirmaAdmin = context.Admins.Where(u => u.Email.Equals(email) && u.Senha.Equals(senha)).FirstOrDefault();
+            var confirmaDoador = context.Doadores.Where(u => u.Email.Equals(email) && u.Senha.Equals(senha)).FirstOrDefault();
+            var confirmaBeneficiario = context.Beneficiarios.Where(u => u.Email.Equals(email) && u.Senha.Equals(senha)).FirstOrDefault();
+            
+            //define o retorno para a view do usuário correto
+            if (confirmaAdmin != null)
             {
-                HttpContext.Session.SetString("usuario_session", confirma.Nome);
+                HttpContext.Session.SetString("usuario_session", confirmaAdmin.Nome);
                 return RedirectToAction("Home");
+            }
+            else if(confirmaDoador != null)
+            {
+                HttpContext.Session.SetString("usuario_session", confirmaDoador.Nome);
+                HttpContext.Session.SetInt32("usuario_session",confirmaDoador.DoadorID);
+                return RedirectToAction("HomeDoador");
+            }
+            else if (confirmaBeneficiario != null)
+            {
+                HttpContext.Session.SetString("usuario_session", confirmaBeneficiario.Nome);
+
+                return RedirectToAction("HomeBeneficiario");
             }
             else
             {
@@ -57,6 +74,18 @@ namespace DoeLuz.Controllers
 
         //primeira view do admin, precisa linkar para o controler admin
         public IActionResult Home()
+        {
+            return View();
+        }
+
+        //view para a tela inicial do doador
+        public IActionResult HomeDoador()
+        {
+            return View();
+        }
+
+        //view para a tela inicial do doador
+        public IActionResult HomeBeneficiario()
         {
             return View();
         }

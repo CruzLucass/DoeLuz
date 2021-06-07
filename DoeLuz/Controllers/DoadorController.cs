@@ -44,8 +44,19 @@ namespace DoeLuz.Controllers
         [HttpPost]
         public IActionResult New(Doador doador)
         {
-            repositorio.Create(doador);
-            return RedirectToAction("List");
+            try
+            {
+                if (ModelState.IsValid)
+                {
+                    repositorio.Create(doador);
+                    return RedirectToAction("ConfirmaCadastro");
+                }
+                return View();
+            }
+            catch
+            {
+                return View();
+            }
         }
 
         //View para exibir as informações dos doadores

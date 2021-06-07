@@ -10,7 +10,7 @@ namespace DoeLuz.Models
     {
         public int AdminID { get; set; }
         
-        [Required]
+        [Required(ErrorMessage ="O nome completo é obrigatório!")]
         [Display(Name = "Nome Completo")]
         public string Nome { get; set; }
         

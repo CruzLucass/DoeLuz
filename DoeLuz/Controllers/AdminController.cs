@@ -20,6 +20,8 @@ namespace DoeLuz.Controllers
             repositorio = repo;
             context = ctx;
         }
+
+        //view com a lista de admins
         public ViewResult List(int paginaAdmin = 1)
             => View(new AdminListViewModel
             {
@@ -35,6 +37,7 @@ namespace DoeLuz.Controllers
                 }
             });
 
+        //view para adicionar um administrador
         [HttpGet]
         public IActionResult New()
         {
@@ -68,6 +71,8 @@ namespace DoeLuz.Controllers
             var admin = repositorio.ObterAdmin(id);
             return View(admin);
         }
+
+        //view para editar um administrador
         [HttpGet]
         public IActionResult Edit(int id)
         {
@@ -80,6 +85,8 @@ namespace DoeLuz.Controllers
             repositorio.Edit(admin);
             return RedirectToAction("List");
         }
+
+        //view para excluir um administrador
         [HttpGet]
         public IActionResult Delete(int id)
         {
