@@ -88,6 +88,11 @@ namespace DoeLuz.Controllers
             return RedirectToAction("List");
         }
 
+        public IActionResult ConfirmaCadastro()
+        {
+            return View();
+        }
+
         //delte o cadastro
         [HttpGet]
         public IActionResult Delete(int id)

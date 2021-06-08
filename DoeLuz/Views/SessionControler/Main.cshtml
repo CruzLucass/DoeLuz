@@ -16,7 +16,7 @@
         </label>
     </div>
     <div class="col-lg-12">
-        @Html.ActionLink("Cadastre-se", "New", "Doador", null, new { @class = "btn btn-primary btn-sm btn-danger" })
+        @Html.ActionLink("Cadastre-se como doador", "New", "Doador", null, new { @class = "btn btn-primary btn-sm btn-danger" })
         @Html.ActionLink("Entrar", "Login", "SessionControler", null, new { @class = "btn btn-dark btn-sm" })
     </div>
     <br />
@@ -53,7 +53,7 @@
         </div>
     </div>
     <div>
-        <h4 class="align-content-lg-center" style="text-align:center">Saiba Mais Sobre o Projeto!</h4>
+        <h4 id="sobre" class="align-content-lg-center" style="text-align:center">Saiba Mais Sobre o Projeto!</h4>
         <div style="display: flex;flex-direction: row;justify-content: center;align-items: center">
             <p class="col-sm-10" style="text-align:center">
                 Este projeto pretende ajudar famílias carentes com alimentos e objetos
@@ -64,7 +64,7 @@
                 que eles estarão distribuindo para famílias que estão cadastradas no sistema.
             </p>
         </div>
-        <h4 class="align-content-lg-center" style="text-align:center">Quem Somos</h4>
+        <h4 id="somos" class="align-content-lg-center" style="text-align:center">Quem Somos</h4>
         <div style="display: flex; flex-direction: row; justify-content: center; align-items: center">
             <p class="col-sm-10" style="text-align:center">
                 O centro espírita à Caminho da Luz está instalado no bairro Vila Betânia em Alfenas/Mg, está a vários anos ralizando serviço comunitário na cidade
@@ -73,7 +73,7 @@
                 e ações para levantamento de itens para doações. É realizado tbm bazares beneficentes na comunidade.
             </p>
         </div>
-        <h4 style="text-align:center" class="align-content-lg-center">Como Ajudar</h4>
+        <h4 id="ajudar" style="text-align:center" class="align-content-lg-center;">Como Ajudar</h4>
         <div style="display: flex; flex-direction: row; justify-content: center; align-items: center">
             <p class="col-sm-10" style="text-align:center">
                 Para ajudar esta causa nobre basta se inscrever no projeto e escolher se deseja doar diretamente para uma familia carente ou se preferir poderá doar para o centro que tambem irá
@@ -89,7 +89,7 @@
             </p>
         </div>
         <div style="display: flex; flex-direction: row; justify-content: center; align-items: center" class="col-lg-12">
-            @Html.ActionLink("Cadastre-se", "New", "Doador", null, new { @class = "btn btn-primary btn-lg btn-danger" })
+            @Html.ActionLink("Cadastre-se como beneficiário", "New", "Beneficiario", null, new { @class = "btn btn-primary btn-lg btn-danger" })
             @Html.ActionLink("Entrar", "Login", "SessionControler", null, new { @class = "btn btn-dark btn-lg" })
         </div>
     </div>

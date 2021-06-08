@@ -59,6 +59,11 @@ namespace DoeLuz.Controllers
             return View(doacao);
         }
 
+        public IActionResult ConfirmaCadastro()
+        {
+            return View();
+        }
+
         //view para editar as informações da doação
         [HttpGet]
         public IActionResult Edit(int id)
