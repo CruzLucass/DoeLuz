@@ -1,4 +1,6 @@
-﻿
+﻿@using Microsoft.AspNetCore.Http;
+@inject Microsoft.AspNetCore.Http.IHttpContextAccessor HttpContextAccessor
+
 @{
     Layout = null;
 }
@@ -24,13 +26,13 @@
         <div id="categories" class="col-2">
             <h3>LOGO</h3>
         </div>
-        
+
         <div class="mt-5 col-lg-9">
             <h1>Bem vindo Doador!</h1>
             @Html.ActionLink("Doar para ONG", "New", "Doacao", null, new { @class = "btn btn-danger btn-lg btn-block rounded-pill" })
             @Html.ActionLink("Procurar alguem para doar", "List", "Beneficiario", null, new { @class = "btn btn-danger btn-lg btn-block rounded-pill" })
-            @Html.ActionLink("Editar Cadastro", "Edit", "Doador", null, new { @class = "btn btn-danger btn-lg btn-block rounded-pill" })
-            @Html.ActionLink("Suas Informações", "Details", "Doador", null, new { @class = "btn btn-danger btn-lg btn-block rounded-pill" })
+            @Html.ActionLink("Editar Cadastro", "Edit", "Doador", new { id = @HttpContextAccessor.HttpContext.Session.GetInt32("id_session") }, new { @class = "btn btn-danger btn-lg btn-block rounded-pill" })
+            @Html.ActionLink("Suas Informações", "Details", "Doador", new { id = @HttpContextAccessor.HttpContext.Session.GetInt32("id_session") }, new { @class = "btn btn-danger btn-lg btn-block rounded-pill" })
         </div>
     </div>
     <footer class="border-top footer text-muted">

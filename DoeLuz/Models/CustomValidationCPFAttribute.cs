@@ -5,6 +5,7 @@ using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.Linq;
 using System.Web;
+using System.Web.Mvc;
 
 namespace DoeLuz.Models
 {
@@ -103,5 +104,9 @@ namespace DoeLuz.Models
                 return false;
             return true;
         }
+    }
+
+    internal interface IClientValidatable
+    {
     }
 }

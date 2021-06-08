@@ -41,23 +41,26 @@ namespace DoeLuz.Controllers
             var confirmaAdmin = context.Admins.Where(u => u.Email.Equals(email) && u.Senha.Equals(senha)).FirstOrDefault();
             var confirmaDoador = context.Doadores.Where(u => u.Email.Equals(email) && u.Senha.Equals(senha)).FirstOrDefault();
             var confirmaBeneficiario = context.Beneficiarios.Where(u => u.Email.Equals(email) && u.Senha.Equals(senha)).FirstOrDefault();
-            
+
+
             //define o retorno para a view do usuário correto
             if (confirmaAdmin != null)
             {
                 HttpContext.Session.SetString("usuario_session", confirmaAdmin.Nome);
+                HttpContext.Session.SetInt32("id_session", confirmaAdmin.AdminID);
                 return RedirectToAction("Home");
             }
             else if(confirmaDoador != null)
             {
                 HttpContext.Session.SetString("usuario_session", confirmaDoador.Nome);
-                HttpContext.Session.SetInt32("usuario_session",confirmaDoador.DoadorID);
+                HttpContext.Session.SetInt32("id_session", confirmaDoador.DoadorID);
+
                 return RedirectToAction("HomeDoador");
             }
             else if (confirmaBeneficiario != null)
             {
                 HttpContext.Session.SetString("usuario_session", confirmaBeneficiario.Nome);
-
+                HttpContext.Session.SetInt32("id_session", confirmaBeneficiario.BeneficiarioID);
                 return RedirectToAction("HomeBeneficiario");
             }
             else
