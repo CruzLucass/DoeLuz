@@ -1,4 +1,6 @@
-﻿
+﻿@using Microsoft.AspNetCore.Http;
+@inject Microsoft.AspNetCore.Http.IHttpContextAccessor HttpContextAccessor
+
 @{
     Layout = null;
 }
@@ -15,7 +17,7 @@
     <nav class="navbar navbar-expand-lg navbar-dark badge-danger" role="navigation">
         <div class="container">
             <a class="navbar-brand h1 mb-0" href="#">DOE LUZ</a>
-            <div >
+            <div>
                 @Html.ActionLink("Sair", "Login", "SessionControler", null, new { @class = "navbar-brand" })
             </div>
         </div>
@@ -26,14 +28,15 @@
         </div>
 
         <div class="mt-5 col-lg-9">
-            <h1>Bem vindo Administrador!</h1>
-            <button type="button" class="btn btn-danger btn-lg btn-block rounded-pill mt-3">Gerenciar Doadores</button>
-            <button type="button" class="btn btn-danger btn-lg btn-block rounded-pill mt-3">Gerenciar Beneficiários</button>
-            <button type="button" class="btn btn-danger btn-lg btn-block rounded-pill mt-3">Gerenciar Administradores</button>
-            <button type="button" class="btn btn-danger btn-lg btn-block rounded-pill mt-3">Gerar Beneficiários do Mês</button>
-            <button type="button" class="btn btn-danger btn-lg btn-block rounded-pill mt-3">Lista de todos Beneficiários</button>
-            <button type="button" class="btn btn-danger btn-lg btn-block rounded-pill mt-3">Lista de Doadores</button>
-            <button type="button" class="btn btn-danger btn-lg btn-block rounded-pill mt-3">Relatório de Doações</button>
+            <h1>Bem vindo @HttpContextAccessor.HttpContext.Session.GetString("usuario_session")!</h1>
+            @Html.ActionLink("Lista de Beneficiários", "List", "Beneficiario", null, new { @class = "btn btn-danger btn-lg btn-block rounded-pill" })
+            @Html.ActionLink("Lista de Doadores", "List", "Doador", null, new { @class = "btn btn-danger btn-lg btn-block rounded-pill" })
+            @Html.ActionLink("Gerenciar Administradores", "List", "Admin", null, new { @class = "btn btn-danger btn-lg btn-block rounded-pill" })
+            @Html.ActionLink("Gerar Beneficiarios do Mês", "ListStatus", "Beneficiario", null, new { @class = "btn btn-danger btn-lg btn-block rounded-pill" })
+            @Html.ActionLink("Relatório de Doações", "List", "Doacao", null, new { @class = "btn btn-danger btn-lg btn-block rounded-pill" })
+            @Html.ActionLink("Editar Cadastro", "Edit", "Admin", new { id = @HttpContextAccessor.HttpContext.Session.GetInt32("id_session") }, new { @class = "btn btn-danger btn-lg btn-block rounded-pill" })
+            @Html.ActionLink("Suas Informações", "Details", "Admin", new { id = @HttpContextAccessor.HttpContext.Session.GetInt32("id_session") }, new { @class = "btn btn-danger btn-lg btn-block rounded-pill" })
+
         </div>
     </div>
     <footer class="border-top footer text-muted">

@@ -37,6 +37,23 @@ namespace DoeLuz.Controllers
             }
         });
 
+        //lista de beneficiados do mês, que o status é igual a disponivel
+        public ViewResult ListStatus(int paginaBeneficiario = 1) => View(new BeneficiarioListViewModel
+        {
+            Beneficiarios = repositorio.Beneficiarios
+            .Where(b => b.Status == "disponivel")
+            .OrderBy(b => b.Nome)
+            .Skip((paginaBeneficiario - 1) * PageSize)
+            .Take(PageSize),
+            PagingInfo = new PagingInfo
+            {
+                PaginaAtual = paginaBeneficiario,
+                ItensPorPagina = PageSize,
+                TotalItens = repositorio.Beneficiarios.Count()
+            }
+        });
+
+
         //Criar novo beneficiario
         [HttpGet]
         public IActionResult New()
