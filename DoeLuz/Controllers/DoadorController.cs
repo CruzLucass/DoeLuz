@@ -59,6 +59,10 @@ namespace DoeLuz.Controllers
             }
         }
 
+        public IActionResult ConfirmaCadastro()
+        {
+            return View();
+        }
         //View para exibir as informações dos doadores
         public IActionResult Details(int id)
         {

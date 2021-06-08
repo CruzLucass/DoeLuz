@@ -5,9 +5,7 @@
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
-<h1 style="text-align:center">Adicionar</h1>
-
-<h4>Doador</h4>
+<h4 style="text-align:center">Doador</h4>
 <hr />
 <div class="row">
     <div class="col-md-4">
@@ -39,24 +37,16 @@
                 <span asp-validation-for="Endereco" class="text-danger"></span>
             </div>
             <div class="form-group">
-<<<<<<< HEAD
-                <input type="submit" value="Corfirmar Cadastro" class="btn btn-primary" />
-                <a asp-controller="SessionControler" asp-action="Main" class="ml-4">Voltar</a>
-=======
-                <input type="submit" value="Confirmar" class="btn btn-primary btn-danger" />
->>>>>>> 5b075fad8f6b0cc98573575af77418f0f02c20aa
+                <a style="color:#D46A6B" asp-controller="SessionControler" asp-action="Main" class="ml-4">Voltar</a>
+                <input asp-action="ConfirmaCadastro" asp-controller="Doador" type="submit" value="Confirmar" class="btn btn-primary btn-danger" />
+
             </div>
         </form>
     </div>
 </div>
-
-<<<<<<< HEAD
 @section Scripts {
     @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
 }
-=======
-<div>
-    <a style="color:#D46A6B;" asp-action="List">Voltar para lista</a>
-</div>
->>>>>>> 5b075fad8f6b0cc98573575af77418f0f02c20aa
+
+
 
