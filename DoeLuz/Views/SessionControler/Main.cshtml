@@ -20,9 +20,10 @@
         @Html.ActionLink("Entrar", "Login", "SessionControler", null, new { @class = "btn btn-dark btn-sm" })
     </div>
     <br />
+    <br />
     <div>
         <h4 style="text-align:center">Conheça algumas histórias:</h4>
-        <div class="row" style="display: flex; flex-direction: row; justify-content: center; align-items: center">
+        <div class="row" style="justify-content:center">
             <div class="card col-sm-3 m-xl-3" style="width: 18rem;">
                 <div class="card-body">
                     <h5 class="card-title">José</h5>
@@ -52,8 +53,10 @@
             </div>
         </div>
     </div>
+    <br />
+    <br />
     <div>
-        <h4 id="sobre" class="align-content-lg-center" style="text-align:center">Saiba Mais Sobre o Projeto!</h4>
+        <h4 id="sobre" class="align-content-lg-center" style="text-align: center; padding-top:3em">Saiba Mais Sobre o Projeto!</h4>
         <div style="display: flex;flex-direction: row;justify-content: center;align-items: center">
             <p class="col-sm-10" style="text-align:center">
                 Este projeto pretende ajudar famílias carentes com alimentos e objetos
@@ -64,6 +67,8 @@
                 que eles estarão distribuindo para famílias que estão cadastradas no sistema.
             </p>
         </div>
+        <br />
+        <br />
         <h4 id="somos" class="align-content-lg-center" style="text-align:center">Quem Somos</h4>
         <div style="display: flex; flex-direction: row; justify-content: center; align-items: center">
             <p class="col-sm-10" style="text-align:center">
@@ -73,6 +78,8 @@
                 e ações para levantamento de itens para doações. É realizado tbm bazares beneficentes na comunidade.
             </p>
         </div>
+        <br />
+        <br />
         <h4 id="ajudar" style="text-align:center" class="align-content-lg-center;">Como Ajudar</h4>
         <div style="display: flex; flex-direction: row; justify-content: center; align-items: center">
             <p class="col-sm-10" style="text-align:center">
@@ -81,13 +88,16 @@
                 Se escolher doar diretamente você poderá detectar no mapa uma família próxima para realizar a doação e conhecer de perto a situação em que a mesma se encontra,
                 depois que escolher basta marcar uma data para realizar a entrega.
                 Caso escolha doar para a centro, você poderá marcar uma data para poder estar entregando sua doação.
-
-                <br />
-                <b>Clique em cadastre-se e realize seu cadastro!</b>
-                Caso ja seja cadastrado clique em Entrar e ajude esta causa!
-
             </p>
+            <br />
+            <br />                        
         </div>
+        <div style="display: flex; flex-direction: row; justify-content: center; align-items: center">
+            <p><b>Clique em cadastre-se e realize seu cadastro!</b></p>
+            <p>Caso ja seja cadastrado clique em Entrar e ajude esta causa!</p>
+        </div>
+        <br/>
+        <br/>
         <div style="display: flex; flex-direction: row; justify-content: center; align-items: center" class="col-lg-12">
             @Html.ActionLink("Cadastre-se como beneficiário", "New", "Beneficiario", null, new { @class = "btn btn-primary btn-lg btn-danger" })
             @Html.ActionLink("Entrar", "Login", "SessionControler", null, new { @class = "btn btn-dark btn-lg" })
