@@ -48,8 +48,19 @@ namespace DoeLuz.Controllers
         [HttpPost]
         public IActionResult New(Doacao doacao)
         {
-            repositorio.Create(doacao);
-            return RedirectToAction("List");
+            try
+            {
+                if (ModelState.IsValid)
+                {
+                    repositorio.Create(doacao);
+                    return RedirectToAction("ConfirmaCadastro");
+                }
+                return View();
+            }
+            catch
+            {
+                return View();
+            }
         }
 
         //view para exibir os detalhes da doacao

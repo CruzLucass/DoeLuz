@@ -63,8 +63,19 @@ namespace DoeLuz.Controllers
         [HttpPost]
         public IActionResult New(Beneficiario beneficiario)
         {
-            repositorio.Create(beneficiario);
-            return RedirectToAction("List");
+            try
+            {
+                if (ModelState.IsValid)
+                {
+                    repositorio.Create(beneficiario);
+                    return RedirectToAction("ConfirmaCadastro");
+                }
+                return View();
+            }
+            catch
+            {
+                return View();
+            }
         }
 
         //mostra os detalhes do cadastro

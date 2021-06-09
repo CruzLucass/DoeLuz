@@ -28,8 +28,14 @@ namespace DoeLuz.Migrations
                     b.Property<string>("ConfirmaEmail")
                         .HasColumnType("nvarchar(max)");
 
+                    b.Property<string>("ConfirmaSenha")
+                        .HasColumnType("nvarchar(max)");
+
                     b.Property<string>("Cpf")
                         .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("DataNascimento")
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("Email")
@@ -52,6 +58,9 @@ namespace DoeLuz.Migrations
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
+                    b.Property<string>("Telefone")
+                        .HasColumnType("nvarchar(max)");
+
                     b.HasKey("AdminID");
 
                     b.ToTable("Admin");
@@ -64,28 +73,42 @@ namespace DoeLuz.Migrations
                         .HasColumnType("int")
                         .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
-                    b.Property<string>("DataEntrega")
+                    b.Property<string>("ConfirmaEmail")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("ConfirmaSenha")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("DataNascimento")
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("Email")
-                        .HasColumnType("nvarchar(max)");
+                        .IsRequired()
+                        .HasMaxLength(150)
+                        .HasColumnType("nvarchar(150)");
 
                     b.Property<string>("Endereco")
+                        .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("Historia")
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("Nome")
+                        .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("Preferencia")
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("Senha")
+                        .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("Status")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("Telefone")
                         .HasColumnType("nvarchar(max)");
 
                     b.HasKey("BeneficiarioID");
@@ -145,6 +168,12 @@ namespace DoeLuz.Migrations
                     b.Property<string>("ConfirmaEmail")
                         .HasColumnType("nvarchar(max)");
 
+                    b.Property<string>("ConfirmaSenha")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("DataNascimento")
+                        .HasColumnType("nvarchar(max)");
+
                     b.Property<string>("Email")
                         .IsRequired()
                         .HasMaxLength(150)
@@ -160,6 +189,9 @@ namespace DoeLuz.Migrations
 
                     b.Property<string>("Senha")
                         .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("Telefone")
                         .HasColumnType("nvarchar(max)");
 
                     b.HasKey("DoadorID");
