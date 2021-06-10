@@ -65,8 +65,9 @@ namespace DoeLuz.Controllers
                 PaginaAtual = paginaBeneficiario,
                 ItensPorPagina = PageSize,
                 TotalItens = repositorio.Beneficiarios.Count()
-            }
+            }            
         });
+
         //Criar novo beneficiario
         [HttpGet]
         public IActionResult New()

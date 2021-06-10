@@ -1,4 +1,6 @@
-﻿
+﻿@using Microsoft.AspNetCore.Http;
+@inject Microsoft.AspNetCore.Http.IHttpContextAccessor HttpContextAccessor
+
 @{
     Layout = null;
 }
@@ -31,7 +33,7 @@
             <br />
             <hr />
             <div class="col-lg-12 justify-content-center">
-                @Html.ActionLink("Voltar ao início", "Main", "SessionControler", null, new { @class = "btn btn-primary btn-lg btn-block btn-danger" })
+                @Html.ActionLink("Voltar", "List", "Doacao", new { id = @HttpContextAccessor.HttpContext.Session.GetInt32("id_session") }, new { @class = "btn btn-primary btn-lg btn-block btn-danger" })
             </div>
             <br />
         </div>

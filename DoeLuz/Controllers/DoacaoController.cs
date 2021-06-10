@@ -63,6 +63,34 @@ namespace DoeLuz.Controllers
             }
         }
 
+    //Aqui o doador vai realizar a doação direta para o beneficiario
+        [HttpGet]
+        public IActionResult DoacaoDireta(int id)
+        {
+            var beneficiario = context.Beneficiarios.Find(id);
+            ViewBag.DoadorID = new SelectList(context.Doadores.OrderBy(d => d.Nome), "Nome");
+            //ViewBag.BeneficiarioID = new SelectList(context.Beneficiarios.OrderBy(b => b.Nome), "Nome");
+            ViewBag.AdminID = new SelectList(context.Admins.OrderBy(a => a.Nome), "Nome");
+            return View(beneficiario);
+        }
+        [HttpPost]
+        public IActionResult DoacaoDireta(Doacao doacao)
+        {
+            try
+            {
+                if (ModelState.IsValid)
+                {
+                    repositorio.Create(doacao);
+                    return RedirectToAction("ConfirmaCadastro");
+                }
+                return View();
+            }
+            catch
+            {
+                return View();
+            }
+        }
+
         //view para exibir os detalhes da doacao
         public IActionResult Details(int id)
         {
@@ -108,5 +136,6 @@ namespace DoeLuz.Controllers
             repositorio.Delete(doacao);
             return RedirectToAction("List");
         }
+
     }
 }

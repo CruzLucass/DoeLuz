@@ -1,12 +1,15 @@
 ﻿@model BeneficiarioListViewModel
 @addTagHelper *, Microsoft.AspNetCore.Mvc.TagHelpers
 @addTagHelper *, DoeLuz
+@using Microsoft.AspNetCore.Http;
+@inject Microsoft.AspNetCore.Http.IHttpContextAccessor HttpContextAccessor
+
 
 @foreach (var b in Model.Beneficiarios)
 {
     <div class="card card-group-danger m-1 p-1">
         <div class="btn-group-toggle p-1">
-            <a style="color:#D46A6B;" asp-controller="Doacao" asp-action="New" asp-route-id="@b.BeneficiarioID"><h4>@b.Nome</h4></a>
+            <a style="color:#D46A6B;" asp-controller="Doacao" asp-action="DoacaoDireta" asp-route-id="@HttpContextAccessor.HttpContext.Session.GetInt32("id_session")"><h4>@b.Nome</h4></a>
             <h5>@b.Email</h5>
             <h5>@b.Status</h5>
             <h5>@b.Endereco</h5>
@@ -18,7 +21,9 @@
 
 }
 <div page-model="@Model.PagingInfo" paging-action="ListStatus" page-classes-enabled="true"
-     page-class="btn" page-class-normal="btn-secondary"
-     page-class-selected="btn-primary" class="btn-group pull-right m-1">
+     page-class="btn" page-class-normal="btn-outline-secondary"
+     page-class-selected="btn-secondary" class="btn-group pull-right m-1">
 </div>
-<div><a style="color:#D46A6B;" asp-controller="SessionControler" asp-action="HomeDoador">Voltar ao menu</a></div>
+<div class="col-5">
+    @Html.ActionLink("Voltar para o menu", "HomeDoador", "SessionControler", new { id = @HttpContextAccessor.HttpContext.Session.GetInt32("id_session") }, new { @class = "btn btn-outline-secondary" })
+</div>

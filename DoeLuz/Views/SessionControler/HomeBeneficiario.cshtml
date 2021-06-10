@@ -14,13 +14,13 @@
     <link rel="stylesheet" asp-href-include="/lib/bootstrap/dist/**/*.min.css" />
     <title>Doe Luz</title>
 </head>
-<body>
+<body style="padding-top:5em">
     <nav class="navbar navbar-expand-lg navbar-dark badge-danger" style="background-color: #D46A6B;" role="navigation">
     <div class="container">
         <a class="navbar-brand h1 mb-0" href="#">DOE LUZ</a>
-        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSite">
-            <span class="navbar-toggler-icon"></span>
-        </button>
+        <div>
+            @Html.ActionLink("Sair", "Login", "SessionControler", null, new { @class = "navbar-brand" })
+        </div>
     </div>
     </nav>
     <div class="row m-1 p-1">
@@ -29,7 +29,7 @@
         </div>
 
         <div class="mt-5 col-lg-9">
-            <h1 style="text-align:center">Bem vindo @HttpContextAccessor.HttpContext.Session.GetString("usuario_session")</h1>
+            <h1 style="text-align:center">Bem vindo @HttpContextAccessor.HttpContext.Session.GetString("usuario_session")!</h1>
             @Html.ActionLink("Suas Informações", "Details", "Beneficiario", new { id = @HttpContextAccessor.HttpContext.Session.GetInt32("id_session") }, new { @class = "btn btn-danger btn-lg btn-block rounded-pill" })
             @Html.ActionLink("Editar Cadastro", "Edit", "Beneficiario", new { id = @HttpContextAccessor.HttpContext.Session.GetInt32("id_session") }, new { @class = "btn btn-danger btn-lg btn-block rounded-pill" })
 
