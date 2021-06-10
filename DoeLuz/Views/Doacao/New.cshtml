@@ -27,7 +27,7 @@
                 <label asp-for="TipoDoacao" class="control-label"></label>
                 <input asp-for="TipoDoacao" class="form-control" />
                 <span asp-validation-for="TipoDoacao" class="text-danger"></span>
-            </div>
+            </div>  
             <div class="form-group">
                 <label asp-for="Item" class="control-label"></label>
                 <input asp-for="Item" class="form-control" />
@@ -40,15 +40,11 @@
             </div>
             <div class="form-group">
                 <label asp-for="DoadorID" class="control-label"></label>
-                <select asp-for="DoadorID" class ="form-control" asp-items="ViewBag.DoadorID"></select>
-            </div>
-            <div class="form-group">
-                <label asp-for="BeneficiarioID" class="control-label"></label>
-                <select asp-for="BeneficiarioID" class="form-control"></select>
+                <select asp-for="DoadorID" class ="form-control" asp-items="ViewBag.NomeDoador"></select>
             </div>
             <div class="form-group">
                 <label asp-for="AdminID" class="control-label"></label>
-                <select asp-for="AdminID" class ="form-control" asp-items="ViewBag.AdminID"></select>
+                <select asp-for="AdminID" class ="form-control" asp-items="ViewBag.NomeAdmin"></select>
             </div>
             <div class="form-group">
                 <a style="color:#D46A6B" asp-controller="SessionControler" asp-action="Main" class="ml-4">Voltar</a>
