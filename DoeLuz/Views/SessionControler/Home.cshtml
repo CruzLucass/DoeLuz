@@ -29,6 +29,7 @@
 
         <div class="mt-5 col-lg-9">
             <h1 style="text-align:center">Bem vindo @HttpContextAccessor.HttpContext.Session.GetString("usuario_session")!</h1>
+            @Html.ActionLink("Cadastrar doação", "DoarAdmin", "Doacao", null, new { @class = "btn btn-danger btn-lg btn-block rounded-pill" })
             @Html.ActionLink("Lista de Beneficiários", "List", "Beneficiario", null, new { @class = "btn btn-danger btn-lg btn-block rounded-pill" })
             @Html.ActionLink("Lista de Doadores", "List", "Doador", null, new { @class = "btn btn-danger btn-lg btn-block rounded-pill" })
             @Html.ActionLink("Gerenciar Administradores", "List", "Admin", null, new { @class = "btn btn-danger btn-lg btn-block rounded-pill" })
@@ -46,9 +47,9 @@
                     <h5>Entre em contato conosco!</h5>
                     <h6>Centro Espírita Caminho da Luz</h6>
                     <p class="ml-3">
-                        Telefone:<br />
-                        Email:<br />
-                        Endereço:
+                        Telefone: (35) 99915-4779<br />
+                        Email: paulogustavovilela@gmail.com<br />
+                        Endereço: Rua da Liberdade, 151 - Vila Betânia
                     </p>
                 </div>
                 <div class="info float-right" style="color:white; padding-top:1em">

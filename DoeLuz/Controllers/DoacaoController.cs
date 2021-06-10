@@ -72,8 +72,37 @@ namespace DoeLuz.Controllers
             ViewBag.AdminID = new SelectList(context.Admins.OrderBy(a => a.Nome),"AdminID", "Nome");
             return View();
         }
+
         [HttpPost]
         public IActionResult DoacaoDireta(Doacao doacao)
+        {
+            try
+            {
+                if (ModelState.IsValid)
+                {
+                    repositorio.Create(doacao);
+                    return RedirectToAction("ConfirmaCadastro");
+                }
+                return View();
+            }
+            catch
+            {
+                return View();
+            }
+        }
+        //Aqui o admin vai cadastrar uma doação
+        [HttpGet]
+        public IActionResult DoarAdmin(int id)
+        {
+            var beneficiario = context.Beneficiarios.Find(id);
+            ViewBag.DoadorID = new SelectList(context.Doadores.OrderBy(d => d.Nome), "Nome");
+            //ViewBag.BeneficiarioID = new SelectList(context.Beneficiarios.OrderBy(b => b.Nome), "Nome");
+            ViewBag.AdminID = new SelectList(context.Admins.OrderBy(a => a.Nome), "Nome");
+            return View(beneficiario);
+        }
+
+        [HttpPost]
+        public IActionResult DoarAdmin(Doacao doacao)
         {
             try
             {
@@ -98,6 +127,11 @@ namespace DoeLuz.Controllers
         }
 
         public IActionResult ConfirmaCadastro()
+        {
+            return View();
+        }
+
+        public IActionResult ConfirmaCadastroAdmin()
         {
             return View();
         }

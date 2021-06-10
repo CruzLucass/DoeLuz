@@ -4,6 +4,7 @@
 @{
     Layout = null;
 }
+
 <!DOCTYPE html>
 
 <html lang="pt-br">
@@ -13,25 +14,28 @@
     <link rel="stylesheet" asp-href-include="/lib/bootstrap/dist/**/*.min.css" />
     <title>Doe Luz</title>
 </head>
-<body style="padding-top:5em">
-    <nav class="navbar navbar-expand-lg navbar-dark badge-danger fixed-top" style="background-color: #D46A6B;" role="navigation">
-        <div class="container">
-            <a class="navbar-brand h1 mb-0" href="#">DOE LUZ</a>
-            <div>
-                @Html.ActionLink("Sair", "Login", "SessionControler", null, new { @class = "navbar-brand" })
-            </div>
+<body>
+    <nav class="navbar navbar-expand-lg navbar-dark badge-danger" style="background-color: #ffffff;" role="navigation">
+        <div class="container" style="text-align:center">
+            <img src="/lib/bootstrap/js/src/logo.jpg" alt="" width="150" height="100">
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSite">
+                <span class="navbar-toggler-icon"></span>
+            </button>
         </div>
     </nav>
-    <div class="row m-1 p-1">
+    <div class="row m-1 p-1 ">
         <div id="categories" class="col-2">
-            <img src="/lib/bootstrap/js/src/logo.jpg" alt="" width="150" height="100">
         </div>
-
-        <div class="mt-5 col-lg-9">
-            <h1 style="text-align:center">Bem vindo @HttpContextAccessor.HttpContext.Session.GetString("usuario_session")!</h1>
-            @Html.ActionLink("Doar para ONG", "New", "Doacao", null, new { @class = "btn btn-danger btn-lg btn-block rounded-pill" })
-            @Html.ActionLink("Procurar alguem para doar", "ListparaDoador", "Beneficiario", null, new { @class = "btn btn-danger btn-lg btn-block rounded-pill" })
-            @Html.ActionLink("Editar Cadastro", "Edit", "Doador", new { id = @HttpContextAccessor.HttpContext.Session.GetInt32("id_session") }, new { @class = "btn btn-danger btn-lg btn-block rounded-pill" })
+        <div class="col-9 justify-content-center">
+            <h1 style="text-align:center"><b>Cadastro realizado com sucesso!</b></h1>
+            <br />
+            <h6 style="text-align:center">Você agendou uma doação</h6>
+            <br />
+            <hr />
+            <div class="col-lg-12 justify-content-center">
+                @Html.ActionLink("Voltar", "Home", "SessionControler", new { id = @HttpContextAccessor.HttpContext.Session.GetInt32("id_session") }, new { @class = "btn btn-primary btn-lg btn-block btn-danger" })
+            </div>
+            <br />
         </div>
     </div>
     <footer class="border-top footer text-muted " style="background-color: #D46A6B;">
@@ -85,3 +89,5 @@
     <script src="~/js/site.js" asp-append-version="true"></script>
 </body>
 </html>
+
+
