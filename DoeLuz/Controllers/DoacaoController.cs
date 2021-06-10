@@ -40,9 +40,9 @@ namespace DoeLuz.Controllers
         [HttpGet]
         public IActionResult New()
         {
-            ViewBag.DoadorID = new SelectList(context.Doadores.OrderBy(d => d.Nome), "Nome");
-            ViewBag.BeneficiarioID = new SelectList(context.Beneficiarios.OrderBy(b => b.Nome),"Nome");
-            ViewBag.AdminID = new SelectList(context.Admins.OrderBy(a => a.Nome), "Nome");
+            ViewBag.DoadorID = new SelectList(context.Doadores.OrderBy(d => d.Nome),"DoadorID", "Nome");
+            ViewBag.BeneficiarioID = new SelectList(context.Beneficiarios.Where(d => d.Status=="disponivel").OrderBy(b => b.Nome),"BeneficiarioID","Nome");
+            ViewBag.AdminID = new SelectList(context.Admins.OrderBy(a => a.Nome),"AdminID", "Nome");
             return View();
         }
         [HttpPost]
@@ -65,13 +65,12 @@ namespace DoeLuz.Controllers
 
     //Aqui o doador vai realizar a doação direta para o beneficiario
         [HttpGet]
-        public IActionResult DoacaoDireta(int id)
+        public IActionResult DoacaoDireta()
         {
-            var beneficiario = context.Beneficiarios.Find(id);
-            ViewBag.DoadorID = new SelectList(context.Doadores.OrderBy(d => d.Nome), "Nome");
-            //ViewBag.BeneficiarioID = new SelectList(context.Beneficiarios.OrderBy(b => b.Nome), "Nome");
-            ViewBag.AdminID = new SelectList(context.Admins.OrderBy(a => a.Nome), "Nome");
-            return View(beneficiario);
+            ViewBag.DoadorID = new SelectList(context.Doadores.OrderBy(d => d.Nome),"DoadorID", "Nome");
+            ViewBag.BeneficiarioID = new SelectList(context.Beneficiarios.Where(d => d.Status == "disponivel").OrderBy(b => b.Nome),"BeneficiarioID", "Nome");
+            ViewBag.AdminID = new SelectList(context.Admins.OrderBy(a => a.Nome),"AdminID", "Nome");
+            return View();
         }
 
         [HttpPost]
