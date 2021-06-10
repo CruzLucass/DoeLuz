@@ -40,9 +40,9 @@ namespace DoeLuz.Controllers
         [HttpGet]
         public IActionResult New()
         {
-            ViewBag.DoadorID = new SelectList(context.Doadores.OrderBy(d => d.Nome),"DoadorID", "Nome");
+            //ViewBag.DoadorID = new SelectList(context.Doadores.OrderBy(d => d.Nome),"DoadorID", "Nome");
             ViewBag.BeneficiarioID = new SelectList(context.Beneficiarios.Where(d => d.Status=="disponivel").OrderBy(b => b.Nome),"BeneficiarioID","Nome");
-            ViewBag.AdminID = new SelectList(context.Admins.OrderBy(a => a.Nome),"AdminID", "Nome");
+            ViewBag.AdminID = new SelectList(context.Admins.OrderBy(a => a.NomeOng),"AdminID", "NomeOng");
             return View();
         }
         [HttpPost]
@@ -69,7 +69,7 @@ namespace DoeLuz.Controllers
         {
             ViewBag.DoadorID = new SelectList(context.Doadores.OrderBy(d => d.Nome),"DoadorID", "Nome");
             ViewBag.BeneficiarioID = new SelectList(context.Beneficiarios.Where(d => d.Status == "disponivel").OrderBy(b => b.Nome),"BeneficiarioID", "Nome");
-            ViewBag.AdminID = new SelectList(context.Admins.OrderBy(a => a.Nome),"AdminID", "Nome");
+            //ViewBag.AdminID = new SelectList(context.Admins.OrderBy(a => a.Nome),"AdminID", "NomeOng");
             return View();
         }
 
@@ -92,13 +92,12 @@ namespace DoeLuz.Controllers
         }
         //Aqui o admin vai cadastrar uma doação
         [HttpGet]
-        public IActionResult DoarAdmin(int id)
+        public IActionResult DoarAdmin()
         {
-            var beneficiario = context.Beneficiarios.Find(id);
-            ViewBag.DoadorID = new SelectList(context.Doadores.OrderBy(d => d.Nome), "Nome");
-            //ViewBag.BeneficiarioID = new SelectList(context.Beneficiarios.OrderBy(b => b.Nome), "Nome");
-            ViewBag.AdminID = new SelectList(context.Admins.OrderBy(a => a.Nome), "Nome");
-            return View(beneficiario);
+            ViewBag.DoadorID = new SelectList(context.Doadores.OrderBy(d => d.Nome),"DoadorID", "Nome");
+            ViewBag.BeneficiarioID = new SelectList(context.Beneficiarios.OrderBy(b => b.Nome),"BeneficiarioID", "Nome");
+            ViewBag.AdminID = new SelectList(context.Admins.OrderBy(a => a.NomeOng),"AdminID", "NomeOng");
+            return View();
         }
 
         [HttpPost]
