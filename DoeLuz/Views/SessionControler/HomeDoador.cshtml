@@ -13,8 +13,8 @@
     <link rel="stylesheet" asp-href-include="/lib/bootstrap/dist/**/*.min.css" />
     <title>Doe Luz</title>
 </head>
-<body>
-    <nav class="navbar navbar-expand-lg navbar-dark badge-danger fixed-top" role="navigation">
+<body style="padding-top:5em">
+    <nav class="navbar navbar-expand-lg navbar-dark badge-danger fixed-top" style="background-color: #D46A6B;" role="navigation">
         <div class="container">
             <a class="navbar-brand h1 mb-0" href="#">DOE LUZ</a>
             <div>
@@ -32,7 +32,6 @@
             @Html.ActionLink("Doar para ONG", "New", "Doacao", null, new { @class = "btn btn-danger btn-lg btn-block rounded-pill" })
             @Html.ActionLink("Procurar alguem para doar", "ListparaDoador", "Beneficiario", null, new { @class = "btn btn-danger btn-lg btn-block rounded-pill" })
             @Html.ActionLink("Editar Cadastro", "Edit", "Doador", new { id = @HttpContextAccessor.HttpContext.Session.GetInt32("id_session") }, new { @class = "btn btn-danger btn-lg btn-block rounded-pill" })
-            @Html.ActionLink("Suas Informações", "Details", "Doador", new { id = @HttpContextAccessor.HttpContext.Session.GetInt32("id_session") }, new { @class = "btn btn-danger btn-lg btn-block rounded-pill" })
         </div>
     </div>
     <footer class="border-top footer text-muted " style="background-color: #D46A6B;">

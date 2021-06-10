@@ -41,9 +41,9 @@ namespace DoeLuz.Infraestutura
             {
                 TagBuilder tag = new TagBuilder("a");
                 tag.Attributes["href"] = urlHelper.Action(PageAction, new { paginaAdmin = i });
-                tag.Attributes["href"] = urlHelper.Action(PageAction, new { paginaBeneficiario = i });
-                tag.Attributes["href"] = urlHelper.Action(PageAction, new { paginaDoador = i });
-                tag.Attributes["href"] = urlHelper.Action(PageAction, new { paginaDoacao = i });
+                //tag.Attributes["href"] = urlHelper.Action(PageAction, new { paginaBeneficiario = i });
+                //tag.Attributes["href"] = urlHelper.Action(PageAction, new { paginaDoador = i });
+                //tag.Attributes["href"] = urlHelper.Action(PageAction, new { paginaDoacao = i });
 
                 if (PageClassesEnabled)
                 {

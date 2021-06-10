@@ -36,9 +36,9 @@ namespace DoeLuz.Models
                         Email = "jp123@gmail.com",
                         Endereco = "Rua da Virtude, 59",
                         Preferencia = "Comida",
-                        DataEntrega = "25/05/2021",
+                        DataNascimento = "25/05/2021",
                         Historia = "Desde o inicio da pandemia perdi o emprego e estou passando por dificuldades.",
-                        Status = "disponivel"
+                        Status = null
                     },
                     new Beneficiario
                     {
@@ -47,9 +47,9 @@ namespace DoeLuz.Models
                         Email = "carlosedu@gmail.com",
                         Endereco = "Rua da Saudade, 79",
                         Preferencia = "Roupas",
-                        DataEntrega = "25/05/2021",
+                        DataNascimento = "25/05/2021",
                         Historia = "Desde o inicio da pandemia perdi o emprego e estou passando por dificuldades.",
-                        Status = "disponivel"
+                        Status = null
                     });
                 context.SaveChanges();
                 context.Doadores.AddRange(
