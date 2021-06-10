@@ -71,7 +71,7 @@ namespace DoeLuz.Models
                         Preferencia = "Roupas",
                         DataNascimento = "30/07/1991",
                         Historia = "Desde o inicio da pandemia perdi o emprego e estou passando por dificuldades.",
-                        Status = null
+                        Status = "disponivel"
                     });
                 context.SaveChanges();
                 context.Doadores.AddRange(
@@ -87,7 +87,8 @@ namespace DoeLuz.Models
                          Nome = "Ana Clara Alves",
                          Senha = "123",
                          Email = "anaclara@gmail.com",
-                         Endereco = "Rua São Paulo, 800"
+                         Endereco = "Rua São Paulo, 800",
+                         Telefone = "3564578329"
                      },
                 new Doador
                 {
