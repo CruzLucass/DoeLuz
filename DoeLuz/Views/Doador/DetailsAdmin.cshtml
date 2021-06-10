@@ -46,6 +46,7 @@
     </dl>
 </div>
 <div>
-    <a style="color:#D46A6B;" asp-action="Edit" asp-route-id="@Model.DoadorID">Editar</a> |
-    @Html.ActionLink("Voltar para o menu", "HomeDoador", "SessionControler", new { id = @HttpContextAccessor.HttpContext.Session.GetInt32("id_session") }, new { @class = "btn btn-outline-secondary" })
+    <a style="color:#D46A6B;" asp-action="EditAdmin" asp-route-id="@Model.DoadorID">Editar</a> |
+    <a style="color:#D46A6B;" asp-action="Delete" asp-route-id="@Model.DoadorID">Excluir</a> |
+    @Html.ActionLink("Voltar para a lista", "Home", "SessionControler", new { id = @HttpContextAccessor.HttpContext.Session.GetInt32("id_session") }, new { @class = "btn btn-outline-secondary" })
 </div>
