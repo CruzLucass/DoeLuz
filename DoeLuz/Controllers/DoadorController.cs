@@ -69,6 +69,11 @@ namespace DoeLuz.Controllers
             var doador = repositorio.ObterDoador(id);
             return View(doador);
         }
+        public IActionResult DetailsAdmin(int id)
+        {
+            var doador = repositorio.ObterDoador(id);
+            return View(doador);
+        }
 
         //View para editar as informações do doador
         [HttpGet]
@@ -79,6 +84,18 @@ namespace DoeLuz.Controllers
         }
         [HttpPost]
         public IActionResult Edit(Doador doador)
+        {
+            repositorio.Edit(doador);
+            return RedirectToAction("List");
+        }
+        [HttpGet]
+        public IActionResult EditAdmin(int id)
+        {
+            var doador = context.Doadores.Find(id);
+            return View(doador);
+        }
+        [HttpPost]
+        public IActionResult EditAdmin(Doador doador)
         {
             repositorio.Edit(doador);
             return RedirectToAction("List");

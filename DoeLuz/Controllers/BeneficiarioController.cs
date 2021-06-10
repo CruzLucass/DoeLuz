@@ -98,6 +98,11 @@ namespace DoeLuz.Controllers
             var beneficiario = repositorio.ObterBeneficiario(id);
             return View(beneficiario);
         }
+        public IActionResult DetailsAdmin(int id)
+        {
+            var beneficiario = repositorio.ObterBeneficiario(id);
+            return View(beneficiario);
+        }
 
         //permite editar as informacoes do cadastro
         [HttpGet]
@@ -108,6 +113,19 @@ namespace DoeLuz.Controllers
         }
         [HttpPost]
         public IActionResult Edit(Beneficiario beneficiario)
+        {
+            repositorio.Edit(beneficiario);
+            return RedirectToAction("List");
+        }
+
+        [HttpGet]
+        public IActionResult EditAdmin(int id)
+        {
+            var beneficiario = context.Beneficiarios.Find(id);
+            return View(beneficiario);
+        }
+        [HttpPost]
+        public IActionResult EditAdmin(Beneficiario beneficiario)
         {
             repositorio.Edit(beneficiario);
             return RedirectToAction("List");

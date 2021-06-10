@@ -36,13 +36,13 @@
                 <input asp-for="Endereco" class="form-control" />
                 <span asp-validation-for="Endereco" class="text-danger"></span>
             </div>
-            
-            <div>
+
+            <div class="form-row">
                 <div class="form-group">
-                    <input asp-controller="SessionControler" asp-action="HomeDoador" type="submit" value="Salvar" class="btn btn-primary btn-danger" />
+                    <input asp-controller="SessionControler" asp-action="Home" type="submit" value="Salvar" class="btn btn-primary btn-danger" />
                 </div>
                 <div class="col-5">
-                    @Html.ActionLink("Voltar para o menu", "HomeDoador", "SessionControler", new { id = @HttpContextAccessor.HttpContext.Session.GetInt32("id_session") }, new { @class = "btn btn-outline-secondary btn-sm" })
+                    @Html.ActionLink("Voltar para o menu", "Home", "SessionControler", new { id = @HttpContextAccessor.HttpContext.Session.GetInt32("id_session") }, new { @class = "btn btn-outline-secondary" })
                 </div>
             </div>
         </form>
