@@ -32,9 +32,6 @@
             <h1 style="text-align:center">Bem vindo @HttpContextAccessor.HttpContext.Session.GetString("usuario_session")!</h1>
             @Html.ActionLink("Suas Informações", "Details", "Beneficiario", new { id = @HttpContextAccessor.HttpContext.Session.GetInt32("id_session") }, new { @class = "btn btn-danger btn-lg btn-block rounded-pill" })
             @Html.ActionLink("Editar Cadastro", "Edit", "Beneficiario", new { id = @HttpContextAccessor.HttpContext.Session.GetInt32("id_session") }, new { @class = "btn btn-danger btn-lg btn-block rounded-pill" })
-
-            <button type="button" class="btn btn-danger btn-lg btn-block rounded-pill mt-3">Confirmar recebimento</button>
-            <button type="button" class="btn btn-danger btn-lg btn-block rounded-pill mt-3">Recebimentos</button>
         </div>
     </div>
     <footer class="border-top footer text-muted fixed-bottom " style="background-color: #D46A6B;">

@@ -1,4 +1,6 @@
 ﻿@model DoeLuz.Models.Doacao
+@using Microsoft.AspNetCore.Http;
+@inject Microsoft.AspNetCore.Http.IHttpContextAccessor HttpContextAccessor
 
 @{
     ViewData["Title"] = "Edit";
@@ -57,11 +59,10 @@
             <div class="form-group">
                 <input type="submit" value="Salvar" class="btn btn-primary btn-danger" />
             </div>
+            <div class="col-5">
+                @Html.ActionLink("Voltar para o menu", "Home", "SessionControler", new { id = @HttpContextAccessor.HttpContext.Session.GetInt32("id_session") }, new { @class = "btn btn-outline-secondary btn-sm" })
+            </div>
         </form>
     </div>
-</div>
-
-<div>
-    <a style="color:#D46A6B;" asp-action="List">Voltar para lista</a>
 </div>
 

@@ -1,4 +1,6 @@
 ﻿@model DoeLuz.Models.Doacao
+@using Microsoft.AspNetCore.Http;
+@inject Microsoft.AspNetCore.Http.IHttpContextAccessor HttpContextAccessor
 
 @{
     ViewData["Title"] = "New";
@@ -28,7 +30,7 @@
             <div class="form-row">
                 <div class="form-group col-md-10">
                     <label asp-for="Mensagem" class="control-label">Mensagem</label>
-                    <input asp-for="Mensagem" class="form-control" placeholder="Coloque aqui uma mensagem para o beneficiario"/>
+                    <input asp-for="Mensagem" class="form-control" placeholder="Coloque aqui uma mensagem para o beneficiario" />
                     <span asp-validation-for="Mensagem" class="text-danger"></span>
                 </div>
             </div>
@@ -44,8 +46,14 @@
                     <select asp-for="AdminID" class="form-control" asp-items="ViewBag.AdminID"></select>
                 </div>
             </div>
+            <div class="form-row">
+                <div class="form-group col-md-10">
+                    <label asp-for="DoadorID" class="control-label">Selecione o nome de um doador</label>
+                    <select asp-for="DoadorID" class="form-control" asp-items="ViewBag.DoadorID"></select>
+                </div>
+            </div>
             <div class="form-group">
-                <a style="color:#D46A6B" asp-controller="SessionControler" asp-action="HomeDoador" class="mr-4">Voltar</a>
+                <a style="color:#D46A6B" asp-controller="SessionControler" asp-action="Home" class="mr-4">Voltar</a>
                 <input type="submit" value="Confirmar" class="btn btn-primary btn-danger" />
             </div>
         </form>

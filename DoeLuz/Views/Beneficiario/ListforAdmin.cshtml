@@ -1,0 +1,82 @@
+﻿@model BeneficiarioListViewModel
+@addTagHelper *, Microsoft.AspNetCore.Mvc.TagHelpers
+@addTagHelper *, DoeLuz
+@using Microsoft.AspNetCore.Http;
+@inject Microsoft.AspNetCore.Http.IHttpContextAccessor HttpContextAccessor
+
+@{
+    ViewData["Title"] = "ListforAdmin";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h1>Lista de beneficiários não disponíveis</h1>
+
+<p>
+    <a asp-action="Home" asp-controller="SessionControler" asp-route-id="@HttpContextAccessor.HttpContext.Session.GetInt32("id_session")">Voltar</a>
+</p>
+<table class="table col-lg-12">
+    <thead>
+        <tr>
+            <th>
+                Nome
+            </th>
+            <th>
+                Email
+            </th>
+            <th>
+                Endereco
+            </th>
+            <th>
+                Preferencia
+            </th>
+            <th>
+               DataNascimento
+            </th>
+            <th>
+               Telefone
+            </th>
+            <th>
+                Historia
+            </th>
+            <th>
+                Status
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model.Beneficiarios)
+        {
+            <tr>
+                <td>
+                    <a style="color:#D46A6B;" asp-action="EditAdmin" asp-route-id="@item.BeneficiarioID"><h4>@item.Nome</h4></a>
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Email)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Endereco)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Preferencia)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.DataNascimento)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Telefone)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Historia)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Status)
+                </td>
+                <td>
+                    <a asp-action="EditAdmin" asp-controller ="Beneficiario" asp-route-id="@item.BeneficiarioID">Editar</a>                     
+                    <a asp-action="Delete" asp-route-id="@item.BeneficiarioID">Delete</a>                     
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>

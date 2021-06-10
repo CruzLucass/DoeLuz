@@ -29,8 +29,8 @@
 
         <div class="mt-5 col-lg-9">
             <h1 style="text-align:center">Bem vindo @HttpContextAccessor.HttpContext.Session.GetString("usuario_session")!</h1>
-            @Html.ActionLink("Doar para ONG", "New", "Doacao", null, new { @class = "btn btn-danger btn-lg btn-block rounded-pill" })
-            @Html.ActionLink("Procurar alguem para doar", "ListparaDoador", "Beneficiario", null, new { @class = "btn btn-danger btn-lg btn-block rounded-pill" })
+            @Html.ActionLink("Doar para ONG", "DoarAdmin", "Doacao", new { id = @HttpContextAccessor.HttpContext.Session.GetInt32("id_session") }, new { @class = "btn btn-danger btn-lg btn-block rounded-pill" })
+            @Html.ActionLink("Procurar alguem para doar", "DoacaoDireta", "Doacao", null, new { @class = "btn btn-danger btn-lg btn-block rounded-pill" })
             @Html.ActionLink("Editar Cadastro", "Edit", "Doador", new { id = @HttpContextAccessor.HttpContext.Session.GetInt32("id_session") }, new { @class = "btn btn-danger btn-lg btn-block rounded-pill" })
             @Html.ActionLink("Suas Informações", "Details", "Doador", new { id = @HttpContextAccessor.HttpContext.Session.GetInt32("id_session") }, new { @class = "btn btn-danger btn-lg btn-block rounded-pill" })
         </div>

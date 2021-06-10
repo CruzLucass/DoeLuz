@@ -64,11 +64,17 @@
                         <div class="form-row">
                             <div class="form-group col-md-10">
                                 <label asp-for="BeneficiarioID" class="control-label">Selecione alguem para receber</label>
-                                <select asp-for="BeneficiarioID" class="form-control" asp-items="ViewBag.Beneficiario"></select>
+                                <select asp-for="BeneficiarioID" class="form-control" asp-items="ViewBag.BeneficiarioID"></select>
+                            </div>
+                        </div>
+                        <div class="form-row">
+                            <div class="form-group col-md-10">
+                                <label asp-for="AdminID" class="control-label">Selecione o nome da ONG</label>
+                                <select asp-for="AdminID" class="form-control" asp-items="ViewBag.AdminID"></select>
                             </div>
                         </div>
                         <div class="form-group">
-                            <a style="color:#D46A6B" asp-controller="SessionControler" asp-action="Home" class="mr-4">Voltar</a>
+                            @Html.ActionLink("Voltar", "HomeDoador", "SessionControler", new { id = @HttpContextAccessor.HttpContext.Session.GetInt32("id_session") }, new { @class = "btn btn-sm-secondary" })
                             <input type="submit" value="Confirmar" class="btn btn-primary btn-danger" />
                         </div>
                     </form>

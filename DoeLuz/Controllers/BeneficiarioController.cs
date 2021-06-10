@@ -41,7 +41,7 @@ namespace DoeLuz.Controllers
         public ViewResult ListStatus(int paginaBeneficiario = 1) => View(new BeneficiarioListViewModel
         {
             Beneficiarios = repositorio.Beneficiarios
-            .Where(b => b.Status == "disponivel")
+            .Where(b => b.Status == null)
             .OrderBy(b => b.Nome)
             .Skip((paginaBeneficiario - 1) * PageSize)
             .Take(PageSize),
@@ -53,10 +53,27 @@ namespace DoeLuz.Controllers
             }
         });
 
+        //lista com status igual a null ou indisponivel para o admin gerenciar
+        public ViewResult ListforAdmin(int paginaBeneficiario = 1) => View(new BeneficiarioListViewModel
+        {
+            Beneficiarios = repositorio.Beneficiarios
+            .Where(b => b.Status == null)
+            .OrderBy(b => b.Nome)
+            .Skip((paginaBeneficiario - 1) * PageSize)
+            .Take(PageSize),
+            PagingInfo = new PagingInfo
+            {
+                PaginaAtual = paginaBeneficiario,
+                ItensPorPagina = PageSize,
+                TotalItens = repositorio.Beneficiarios.Count()
+            }
+        });
+
+        //list para o doador ver os benefiiciarios com status igual a disponivel
         public ViewResult ListparaDoador(int paginaBeneficiario = 1) => View(new BeneficiarioListViewModel
         {
             Beneficiarios = repositorio.Beneficiarios
-            .Where(b => b.Status == "disponivel")
+            .Where(b => b.Status == null)
             .OrderBy(b => b.Nome)
             .Skip((paginaBeneficiario - 1) * PageSize)
             .Take(PageSize),
@@ -128,7 +145,7 @@ namespace DoeLuz.Controllers
         public IActionResult EditAdmin(Beneficiario beneficiario)
         {
             repositorio.Edit(beneficiario);
-            return RedirectToAction("List");
+            return RedirectToAction("ListforAdmin");
         }
 
         public IActionResult ConfirmaCadastro()

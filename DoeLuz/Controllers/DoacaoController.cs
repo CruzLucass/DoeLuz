@@ -40,8 +40,8 @@ namespace DoeLuz.Controllers
         [HttpGet]
         public IActionResult New()
         {
-            //ViewBag.DoadorID = new SelectList(context.Doadores.OrderBy(d => d.Nome),"DoadorID", "Nome");
-            ViewBag.BeneficiarioID = new SelectList(context.Beneficiarios.Where(d => d.Status=="disponivel").OrderBy(b => b.Nome),"BeneficiarioID","Nome");
+            ViewBag.DoadorID = new SelectList(context.Doadores.OrderBy(d => d.Nome),"DoadorID", "Nome");
+            ViewBag.BeneficiarioID = new SelectList(context.Beneficiarios/*.Where(d => d.Status=="disponivel")*/.OrderBy(b => b.Nome),"BeneficiarioID","Nome");
             ViewBag.AdminID = new SelectList(context.Admins.OrderBy(a => a.NomeOng),"AdminID", "NomeOng");
             return View();
         }
@@ -53,7 +53,7 @@ namespace DoeLuz.Controllers
                 if (ModelState.IsValid)
                 {
                     repositorio.Create(doacao);
-                    return RedirectToAction("ConfirmaCadastro");
+                    return RedirectToAction("ConfirmaCadastroAdmin");
                 }
                 return View();
             }
@@ -68,8 +68,8 @@ namespace DoeLuz.Controllers
         public IActionResult DoacaoDireta()
         {
             ViewBag.DoadorID = new SelectList(context.Doadores.OrderBy(d => d.Nome),"DoadorID", "Nome");
-            ViewBag.BeneficiarioID = new SelectList(context.Beneficiarios.Where(d => d.Status == "disponivel").OrderBy(b => b.Nome),"BeneficiarioID", "Nome");
-            //ViewBag.AdminID = new SelectList(context.Admins.OrderBy(a => a.Nome),"AdminID", "NomeOng");
+            ViewBag.BeneficiarioID = new SelectList(context.Beneficiarios/*.Where(d => d.Status == "disponivel")*/.OrderBy(b => b.Nome),"BeneficiarioID", "Nome");
+            ViewBag.AdminID = new SelectList(context.Admins.OrderBy(a => a.Nome),"AdminID", "NomeOng");
             return View();
         }
 
