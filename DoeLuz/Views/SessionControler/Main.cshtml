@@ -1,0 +1,105 @@
+﻿
+@{
+    ViewData["Title"] = "Main";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<div>
+    <div>
+        <br />
+    </div>
+
+    <div class="col-11 ml-4 d-flex">
+        <label>
+            O Projeto Doe Luz é uma ação inesperada que tem o objetivo de ampliar o tabalho voluntário feito pelo
+            centro espírita à Caminho da Luz, que ajuda centenas de famílias carentes na cidade de Alfenas.
+        </label>
+        <br />
+    </div>
+    <div class="col-11 d-flex justify-content-end">
+        <div>
+            @Html.ActionLink("Entrar", "Login", "SessionControler", null, new { @class = "btn btn-secondary btn-lg" })
+        </div>
+    </div>
+    <br />
+    <br />
+    <div>
+        <h4 style="text-align:center">Conheça algumas histórias:</h4>
+        <div class="row" style="justify-content:center">
+            <div class="card col-sm-3 m-xl-3" style="width: 18rem;">
+                <div class="card-body">
+                    <h5 class="card-title">José</h5>
+                    <h6 class="card-subtitle mb-2 text-muted">Alfenas</h6>
+                    <p class="card-text">"Estou desempregado desde o início da pandemia e não tenho condições de alimentar minha família."</p>
+                </div>
+            </div>
+            <div class="card col-sm-3 m-xl-3" style="width: 18rem;">
+                <div class="card-body">
+                    <h5 class="card-title">Maria</h5>
+                    <h6 class="card-subtitle mb-2 text-muted">Alfenas</h6>
+                    <p class="card-text">"Perdi meu marido para o COVID-19 e desde então não consigo manter a todos os meus três filhos."</p>
+                </div>
+            </div>
+            <div class="card col-sm-3 m-xl-3" style="width: 18rem;">
+                <div class="card-body">
+                    <h5 class="card-title">Luis</h5>
+                    <h6 class="card-subtitle mb-2 text-muted">Alfenas</h6>
+                    <p class="card-text">"Estou desempregado e não consigo dinheiro para comprar leite para meus filhos."</p>
+                </div>
+            </div>
+        </div>
+    </div>
+    <br />
+    <div>
+        <h4 id="sobre" class="align-content-lg-center" style="text-align: center; padding-top:3em">Saiba Mais Sobre o Projeto!</h4>
+        <div style="display: flex;flex-direction: row;justify-content: center;align-items: center">
+            <p class="col-sm-10" style="text-align:center">
+                Este projeto pretende ajudar famílias carentes com alimentos e objetos
+                pessoais como roupas, sapatos e cobertores.
+                Com a ajuda desse site vamos organizar melhor as doações e ampliar a ajuda
+                para que qualquer pessoa possa ajudar quem precisa.
+                Você pode ajudar diretamente uma familia ou então pode repassar essa ajuda ppara o centro
+                que eles estarão distribuindo para famílias que estão cadastradas no sistema.
+            </p>
+        </div>
+        <br />
+        <br />
+        <h4 id="quemsomos" class="align-content-lg-center" style="text-align:center">Quem Somos</h4>
+        <div style="display: flex; flex-direction: row; justify-content: center; align-items: center">
+            <p class="col-sm-10" style="text-align:center">
+                O centro espírita à Caminho da Luz está instalado no bairro Vila Betânia em Alfenas/Mg, está a vários anos ralizando serviço comunitário na cidade
+                com o intuito de uma sociedade igualitária.
+                A instituição realiza evangelização de dezenas de crianças e adolescentes, ensinando os valores primordios da vida, também é realizado serviços comunitários
+                e ações para levantamento de itens para doações. É realizado tbm bazares beneficentes na comunidade.
+            </p>
+        </div>
+        <br />
+        <br />
+        <h4 id="ajudar" style="text-align:center" class="align-content-lg-center;">Como Ajudar</h4>
+        <div style="display: flex; flex-direction: row; justify-content: center; align-items: center">
+            <p class="col-sm-10" style="text-align:center">
+                Para ajudar esta causa nobre basta se inscrever no projeto e escolher se deseja doar diretamente para uma familia carente ou se preferir poderá doar para o centro que tambem irá
+                repassar a sua doação para uma família que necessite.
+                Se escolher doar diretamente você poderá detectar no mapa uma família próxima para realizar a doação e conhecer de perto a situação em que a mesma se encontra,
+                depois que escolher basta marcar uma data para realizar a entrega.
+                Caso escolha doar para a centro, você poderá marcar uma data para poder estar entregando sua doação.
+            </p>
+            <br />
+            <br />                        
+        </div>
+        <div style="display: flex; flex-direction: row; justify-content: center; align-items: center">
+            <p><b>Clique em cadastre-se e realize seu cadastro!</b></p>
+            <p>Caso ja seja cadastrado clique em Entrar e ajude esta causa!</p>
+        </div>
+        <br/>
+        <br/>
+        <div style="display: flex; flex-direction: row; justify-content: center; align-items: center">
+
+            @Html.ActionLink("Cadastre-se como doador", "New", "Doador", null, new { @class = "btn btn-primary btn-md btn-secondary" })
+
+            @Html.ActionLink("Cadastre-se como beneficiário", "New", "Beneficiario", null, new { @class = "btn btn-primary btn-md btn-secondary ml-4" })
+
+        </div>
+    </div>
+</div>
+

@@ -1,11 +1,30 @@
-﻿@model IEnumerable<Admin>
-@foreach(var a in Model)
+﻿@model AdminListViewModel
+@addTagHelper *, Microsoft.AspNetCore.Mvc.TagHelpers
+@addTagHelper *, DoeLuz
+@using Microsoft.AspNetCore.Http;
+@inject Microsoft.AspNetCore.Http.IHttpContextAccessor HttpContextAccessor
+
+@foreach (var a in Model.Admins)
 {
-    <div>
-        <h3>@a.Nome</h3>
-        <h3>@a.Email</h3>
-        <h4>@a.Endereco</h4>
-        <h4>@a.Cpf</h4>
-        <h4>@a.Doacoes</h4>
+    <div class="card card-outline-primary m-1 p-1">
+        <div class="bg-faded p-1">
+            <a style="color:#D46A6B;" asp-action="Details" asp-route-id="@a.AdminID"><h4>@a.Nome</h4></a>
+            <h6>@a.Email</h6>
+            <h6>@a.Endereco</h6>
+        </div>
     </div>
+}
+<div page-model="@Model.PagingInfo" paging-action="List" page-classes-enabled="true"
+     page-class="btn" page-class-normal="btn-outline-secondary"
+     page-class-selected="btn-secondary" class="btn-group pull-right m-1">
+    
+
+</div>
+<div>
+    <div class="col-md-5">
+        @Html.ActionLink("Voltar para o menu", "Home", "SessionControler", new { id = @HttpContextAccessor.HttpContext.Session.GetInt32("id_session") }, new { @class = "btn btn-outline-secondary" })
+    </div>
+</div>
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
 }

@@ -1,0 +1,70 @@
+﻿@model DoeLuz.Models.Doacao
+@using Microsoft.AspNetCore.Http;
+@inject Microsoft.AspNetCore.Http.IHttpContextAccessor HttpContextAccessor
+
+@{
+    ViewData["Title"] = "Details";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h1 style="text-align:center">Informações</h1>
+
+<div>
+    <h4>Doação</h4>
+    <hr />
+    <dl class="row">
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.DataEntrega)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.DataEntrega)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.Confirma)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Confirma)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.TipoDoacao)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.TipoDoacao)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.Item)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Item)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.Mensagem)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Mensagem)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.Admin)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Admin.NomeOng)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.Doador)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Doador.Nome)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.Beneficiario)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Beneficiario.Nome)
+        </dd>
+    </dl>
+</div>
+<div>
+    <a style="color:#D46A6B;" asp-action="Edit" asp-route-id="@Model.DoacaoID">Editar</a> |
+    <a style="color:#D46A6B;" asp-action="Delete" asp-route-id="@Model.DoacaoID">Excluir</a> |
+    @Html.ActionLink("Voltar para a lista", "List", "Doacao", new { id = @HttpContextAccessor.HttpContext.Session.GetInt32("id_session") }, new { @class = "btn btn-outline-secondary" })
+</div>

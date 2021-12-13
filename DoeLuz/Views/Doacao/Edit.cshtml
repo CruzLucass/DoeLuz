@@ -1,0 +1,68 @@
+﻿@model DoeLuz.Models.Doacao
+@using Microsoft.AspNetCore.Http;
+@inject Microsoft.AspNetCore.Http.IHttpContextAccessor HttpContextAccessor
+
+@{
+    ViewData["Title"] = "Edit";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h1 style="text-align:center">Editar</h1>
+
+<h4>Doação</h4>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form asp-action="Edit">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <input type="hidden" asp-for="DoacaoID" />
+            <div class="form-group">
+                <label asp-for="DataEntrega" class="control-label"></label>
+                <input asp-for="DataEntrega" class="form-control" />
+                <span asp-validation-for="DataEntrega" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Confirma" class="control-label"></label>
+                <input asp-for="Confirma" class="form-control" />
+                <span asp-validation-for="Confirma" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="TipoDoacao" class="control-label"></label>
+                <input asp-for="TipoDoacao" class="form-control" />
+                <span asp-validation-for="TipoDoacao" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Item" class="control-label"></label>
+                <input asp-for="Item" class="form-control" />
+                <span asp-validation-for="Item" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Mensagem" class="control-label"></label>
+                <input asp-for="Mensagem" class="form-control" />
+                <span asp-validation-for="Mensagem" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="DoadorID" class="control-label"></label>
+                <select asp-for="DoadorID" class="form-control" asp-items="ViewBag.DoadorID"></select>
+                <span asp-validation-for="DoadorID" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="BeneficiarioID" class="control-label"></label>
+                <select asp-for="BeneficiarioID" class="form-control" asp-items="ViewBag.BeneficiarioID"></select>
+                <span asp-validation-for="BeneficiarioID" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="AdminID" class="control-label"></label>
+                <select asp-for="AdminID" class="form-control" asp-items="ViewBag.AdminID"></select>
+                <span asp-validation-for="AdminID" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Salvar" class="btn btn-primary btn-danger" />
+            </div>
+            <div class="col-5">
+                @Html.ActionLink("Voltar para o menu", "Home", "SessionControler", new { id = @HttpContextAccessor.HttpContext.Session.GetInt32("id_session") }, new { @class = "btn btn-outline-secondary btn-sm" })
+            </div>
+        </form>
+    </div>
+</div>
+

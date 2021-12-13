@@ -10,6 +10,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using DoeLuz.Models;
+using Microsoft.AspNetCore.Authentication.Certificate;
 
 namespace DoeLuz
 {
@@ -20,6 +21,12 @@ namespace DoeLuz
         public IConfiguration Configuration { get; }
         public void ConfigureServices(IServiceCollection services)
         {
+                services.AddAuthentication(
+            CertificateAuthenticationDefaults.AuthenticationScheme)
+            .AddCertificate()
+            // Adding an ICertificateValidationCache results in certificate auth caching the results.
+            // The default implementation uses a memory cache.
+            .AddCertificateCache();
             services.AddDbContext<ApplicationDbContext>(options =>
             options.UseSqlServer(
                 Configuration["Data:DoeLuz:ConnectionString"]));
@@ -28,6 +35,20 @@ namespace DoeLuz
             services.AddTransient<IBeneficiarioRepositorio, EFBeneficiarioRepositorio>();
             services.AddTransient<IDoacaoRepositorio, EFDoacaoRepositorio>();
             services.AddMvc();
+            services.AddControllersWithViews();
+            
+            //configuração do cookie
+            services.AddDistributedMemoryCache();
+
+            //configuração da session
+            services.AddSession(options =>
+            {
+                options.Cookie.Name = ".usuario_session.Session";
+                options.Cookie.Name = ".id_session.Session";
+                options.IdleTimeout = TimeSpan.FromSeconds(10);
+                options.Cookie.IsEssential = true;
+            });
+            services.AddSingleton<IHttpContextAccessor, HttpContextAccessor>();
 
         }
 
@@ -37,17 +58,27 @@ namespace DoeLuz
             {
                 app.UseDeveloperExceptionPage();
             }
+            app.UseAuthentication();
             app.UseStatusCodePages();
             app.UseStaticFiles();
+
             app.UseRouting();
 
+            app.UseAuthentication();
+            app.UseAuthorization();
+
+            app.UseSession();
+                  
             app.UseEndpoints(endpoints =>
             {
                 endpoints.MapControllerRoute(
                     name: "default",
-                    pattern: "{controller}/{action}/{id?}",
-                    defaults: new { controller = "Beneficiario", action = "List" });
+                    pattern: "{controller=SessionControler}/{action=Main}/{id?}");
             });
+
+            app.UseSession();
+
+
             SeedData.EnsurePopulated(app);
         }
     }

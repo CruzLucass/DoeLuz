@@ -1,0 +1,58 @@
+﻿@model DoeLuz.Models.Admin
+
+@{
+    ViewData["Title"] = "Login";
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html lang="pt-br">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width , initial-scale=1, shrink-to-fit=no" />
+    <link rel="stylesheet" asp-href-include="/lib/bootstrap/dist/**/*.min.css" />
+    <title>Doe Luz</title>
+</head>
+<body>
+    <nav class="navbar navbar-expand-lg navbar-dark badge-danger" style="background-color: #D46A6B;" role="navigation">
+        <div class="container">
+            <a class="navbar-brand h1 mb-0" href="#">DOE LUZ</a>
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSite">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+        </div>
+    </nav>
+    <div class="row m-1 p-1">
+        <div id="categories" class="col-2">
+            <img src="/lib/bootstrap/js/src/logo.jpg" alt="" width="150" height="100">
+        </div>
+    </div>
+
+        <h1 class="col-md-11 d-flex justify-content-center">Faça Login</h1>
+        <hr />
+        <div class="row">
+            <div class="col-md-12 d-flex justify-content-center" >
+                <form asp-action="Login">
+                    <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+                    <div class="form-group col-md-12">
+                        <label asp-for="Email" class="control-label"></label>
+                        <input asp-for="Email" class="form-control" />
+                        <span asp-validation-for="Email" class="text-danger"></span>
+                    </div>
+                    <div class="form-group col-md-12">
+                        <label asp-for="Senha" class="control-label"></label>
+                        <input asp-for="Senha" class="form-control" />
+                        <span asp-validation-for="Senha" class="text-danger"></span>
+                    </div>
+                    <div class="form-group">
+                        <input type="submit" value="Entrar" class="btn btn-danger" />
+                        @Html.ActionLink("Cadastre-se", "New", "Doador", null, new { @class = "btn btn-dark ml-2" })
+                        <a style="color: #D46A6B;" asp-controller="SessionControler" asp-action="Main" class="ml-3">Voltar</a>
+                    </div>
+                </form>
+            </div>
+        </div>
+</body>
+</html>
+

@@ -1,0 +1,23 @@
+﻿@model BeneficiarioListViewModel
+@addTagHelper *, Microsoft.AspNetCore.Mvc.TagHelpers
+@addTagHelper *, DoeLuz
+
+@foreach (var b in Model.Beneficiarios)
+{
+    <div class="card card-group-danger m-1 p-1">
+        <div class="btn-group-toggle p-1">
+            <a style="color:#D46A6B;" asp-action="Details" asp-route-id="@b.BeneficiarioID"><h4>@b.Nome</h4></a>
+            <h5>@b.Email</h5>
+            <h5>@b.Status</h5>
+            <h5>@b.Endereco</h5>
+            <h5>@b.Historia</h5>
+            <h5>@b.Preferencia</h5>
+            <h5>@b.Doacoes</h5>
+        </div>
+    </div>
+
+}
+<div page-model="@Model.PagingInfo" paging-action="ListStatus" page-classes-enabled="true"
+     page-class="btn" page-class-normal="btn-secondary"
+     page-class-selected="btn-primary" class="btn-group pull-right m-1">
+</div>

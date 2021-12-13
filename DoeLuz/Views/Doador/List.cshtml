@@ -1,10 +1,29 @@
-﻿@model IEnumerable<Doador>
-@foreach (var d in Model)
+﻿@model DoadorListViewModel
+@addTagHelper *, Microsoft.AspNetCore.Mvc.TagHelpers
+@addTagHelper *, DoeLuz
+@using Microsoft.AspNetCore.Http;
+@inject Microsoft.AspNetCore.Http.IHttpContextAccessor HttpContextAccessor
+
+@foreach (var d in Model.Doadores)
 {
-    <div>
-        <h3>@d.Nome</h3>
-        <h3>@d.Email</h3>
-        <h3>@d.Endereco</h3>
-        <h4>@d.Doacoes</h4>
+    <div class="card card-group-danger m-1 p-1">
+        <div class="btn-group-toggle p-1">
+            <div>
+                <a style="color:#D46A6B;" asp-action="DetailsAdmin" asp-route-id="@d.DoadorID"><h4>@d.Nome</h4></a>
+                <h5>@d.Email</h5>
+                <h5>@d.Endereco</h5>
+                <h5>@d.Doacoes</h5>
+            </div>
+        </div>
     </div>
+
 }
+<div page-model="@Model.PagingInfo" paging-action="List" page-classes-enabled="true"
+     page-class="btn" page-class-normal="btn-outline-secondary"
+     page-class-selected="btn-secondary" class="btn-group pull-right m-1">
+</div>
+<div>
+    <div class="col-md-5">
+        @Html.ActionLink("Voltar para o menu", "Home", "SessionControler", new { id = @HttpContextAccessor.HttpContext.Session.GetInt32("id_session") }, new { @class = "btn btn-outline-secondary" })
+    </div>
+</div>
