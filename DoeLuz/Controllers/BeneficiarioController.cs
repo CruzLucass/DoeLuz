@@ -41,7 +41,7 @@ namespace DoeLuz.Controllers
         public ViewResult ListStatus(int paginaBeneficiario = 1) => View(new BeneficiarioListViewModel
         {
             Beneficiarios = repositorio.Beneficiarios
-            .Where(b => b.Status == null)
+            .Where(b => b.Status == "disponivel")
             .OrderBy(b => b.Nome)
             .Skip((paginaBeneficiario - 1) * PageSize)
             .Take(PageSize),
